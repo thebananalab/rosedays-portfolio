@@ -111,12 +111,13 @@ nav a:hover::after{width:100%}
 .mut{color:var(--ink-soft)}
 
 /* ---------- SECTION MARQUEE HEADINGS ---------- */
-.sec-head{border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden;padding:1.1rem 0}
-.sec-head .track{display:flex;gap:3rem;width:max-content;animation:scrollX 22s linear infinite}
+.sec-head{border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden;padding:1.1rem 2.5rem;text-align:center}
+.sec-head .track{display:flex;gap:3rem;width:max-content;margin:0 auto}
+.sec-head.marquee .track{animation:scrollX 22s linear infinite}
 .sec-head h2{
   font-family:var(--font-display);font-weight:900;
-  font-size:clamp(2.6rem,7vw,5.5rem);
-  letter-spacing:-.03em;white-space:nowrap;text-transform:lowercase;
+  font-size:clamp(1.7rem,7vw,5.5rem);
+  letter-spacing:-.03em;white-space:normal;word-break:break-word;text-transform:lowercase;line-height:1.05;
 }
 .sec-head h2 em{font-style:normal;color:var(--lilac)}
 .sec-note{
@@ -358,7 +359,7 @@ footer{padding:2rem 1.2rem 1.2rem}
 <!-- FEATURED WORK -->
 <div class="sec-head" id="work">
   <div class="track">
-    <h2>featured work<em>*</em></h2><h2>featured work<em>*</em></h2><h2>featured work<em>*</em></h2><h2>featured work<em>*</em></h2>
+    <h2>featured work<em>*</em></h2>
   </div>
 </div>
 <p class="sec-note reveal"><b>*Campaigns, content and communities that outgrew the brief.</b> Marketing work carried end-to-end, from teaser to launch to the people who kept showing up.</p>
@@ -390,7 +391,7 @@ footer{padding:2rem 1.2rem 1.2rem}
 <!-- WHAT I DO -->
 <div class="sec-head" id="services">
   <div class="track">
-    <h2>what i do<em>*</em></h2><h2>what i do<em>*</em></h2><h2>what i do<em>*</em></h2><h2>what i do<em>*</em></h2><h2>what i do<em>*</em></h2>
+    <h2>what i do<em>*</em></h2>
   </div>
 </div>
 <p class="sec-note reveal"><b>*Marketing that gets its hands dirty,</b> measured down to the last point on a banner — never "just throw budget at Meta Ads."</p>
@@ -437,7 +438,7 @@ footer{padding:2rem 1.2rem 1.2rem}
 <!-- CLIENTS -->
 <div class="sec-head">
   <div class="track">
-    <h2>clients<em>*</em></h2><h2>clients<em>*</em></h2><h2>clients<em>*</em></h2><h2>clients<em>*</em></h2><h2>clients<em>*</em></h2><h2>clients<em>*</em></h2>
+    <h2>clients<em>*</em></h2>
   </div>
 </div>
 <p class="sec-note reveal"><b>*Teams, brands and people who trusted the process.</b></p>
