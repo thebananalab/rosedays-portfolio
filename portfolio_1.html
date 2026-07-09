@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ROSEDAYS — Brand Lab</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,700,900,1&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,400;12..96,500;12..96,600;12..96,700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#EDEDE9;
+  --ink:#1D1C1B;
+  --lilac:#A89CF7;
+  --acid:#E6FF00;
+  --ink-soft:rgba(29,28,27,.55);
+  --line:rgba(29,28,27,.14);
+  --card:#F6F6F3;
+  --font-display:'Satoshi',sans-serif;
+  --font-body:'Bricolage Grotesque',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);
+  color:var(--ink);
+  font-family:var(--font-body);
+  overflow-x:hidden;
+  cursor:default;
+}
+::selection{background:var(--acid);color:var(--ink)}
+
+/* ---------- NAV ---------- */
+nav{
+  position:fixed;inset:0 0 auto 0;z-index:100;
+  display:flex;justify-content:space-between;align-items:center;
+  padding:1.4rem 2.5rem;
+  mix-blend-mode:difference;color:#fff;
+}
+nav a{color:#fff;text-decoration:none;font-family:var(--font-body);font-weight:500;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;position:relative}
+nav a::after{content:'';position:absolute;left:0;bottom:-4px;width:0;height:1px;background:#fff;transition:width .35s cubic-bezier(.6,0,.2,1)}
+nav a:hover::after{width:100%}
+.nav-logo{font-family:var(--font-display);font-weight:900;font-size:1.05rem;letter-spacing:-.01em}
+.nav-links{display:flex;gap:2.2rem}
+
+/* ---------- HERO DRAG PLAYGROUND ---------- */
+@keyframes scrollX{to{transform:translateX(-50%)}}
+.hero{
+  position:relative;height:100vh;min-height:620px;overflow:hidden;
+  background:
+    radial-gradient(circle at 80% 15%,rgba(168,156,247,.28),transparent 45%),
+    radial-gradient(circle at 15% 85%,rgba(230,255,0,.14),transparent 40%),
+    var(--bg);
+}
+.hero-hint{
+  position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+  text-align:center;pointer-events:none;z-index:0;width:100%;
+}
+.hero-hint h1{
+  font-family:var(--font-display);font-weight:900;
+  font-size:clamp(3rem,9vw,8rem);letter-spacing:-.04em;line-height:.92;
+  color:var(--ink);text-transform:uppercase;
+}
+.hero-hint h1 em{font-style:normal;color:var(--lilac)}
+.hero-hint p{
+  font-family:var(--font-body);font-weight:500;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--ink-soft);margin-top:1.4rem;
+  animation:pulse 2.4s ease-in-out infinite;
+}
+@keyframes pulse{50%{opacity:.35}}
+.drag-item{
+  position:absolute;top:0;left:0;
+  border-radius:14px;overflow:hidden;
+  cursor:grab;user-select:none;-webkit-user-drag:none;
+  touch-action:none;will-change:transform;
+  box-shadow:0 10px 30px rgba(29,28,27,.18);
+  transition:box-shadow .3s;
+}
+.drag-item.grabbing{cursor:grabbing;box-shadow:0 25px 60px rgba(29,28,27,.32)}
+.drag-item img{
+  display:block;width:100%;height:100%;object-fit:cover;pointer-events:none;
+  filter:saturate(.92) contrast(1.02);
+}
+.drag-item .tag{
+  position:absolute;left:10px;bottom:8px;
+  font-family:var(--font-body);font-weight:500;font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--ink);background:var(--acid);
+  padding:.28rem .6rem;border-radius:999px;pointer-events:none;
+}
+
+/* ---------- BIG INTRO ---------- */
+.intro{padding:7rem 2.5rem 8rem;max-width:1350px;margin:0 auto}
+.intro p{
+  font-family:var(--font-display);
+  font-weight:700;
+  font-size:clamp(1.9rem,4.6vw,4.1rem);
+  line-height:1.14;
+  letter-spacing:-.02em;
+}
+.chip{
+  display:inline-block;vertical-align:middle;
+  width:1.5em;height:.95em;border-radius:.5em;margin:0 .12em;
+  transform:translateY(-.05em);
+  transition:transform .4s cubic-bezier(.34,1.6,.5,1);
+}
+.intro p:hover .chip{transform:translateY(-.05em) rotate(8deg) scale(1.08)}
+.chip-a{background:linear-gradient(120deg,var(--lilac),#7d6ce0)}
+.chip-b{background:linear-gradient(120deg,var(--acid),#b9cf00)}
+.chip-c{background:conic-gradient(var(--ink),var(--lilac),var(--ink))}
+.chip-d{background:repeating-linear-gradient(45deg,var(--ink) 0 6px,var(--acid) 6px 12px)}
+.hl{color:var(--lilac)}
+.mut{color:var(--ink-soft)}
+
+/* ---------- SECTION MARQUEE HEADINGS ---------- */
+.sec-head{border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden;padding:1.1rem 0}
+.sec-head .track{display:flex;gap:3rem;width:max-content;animation:scrollX 22s linear infinite}
+.sec-head h2{
+  font-family:var(--font-display);font-weight:900;
+  font-size:clamp(2.6rem,7vw,5.5rem);
+  letter-spacing:-.03em;white-space:nowrap;text-transform:lowercase;
+}
+.sec-head h2 em{font-style:normal;color:var(--lilac)}
+.sec-note{
+  max-width:520px;margin:2.2rem 2.5rem 3.5rem auto;
+  font-size:.95rem;line-height:1.6;color:var(--ink-soft);
+  padding-right:2.5rem;
+}
+.sec-note b{color:var(--ink);font-weight:600}
+
+/* ---------- WORK GRID ---------- */
+.work{max-width:1350px;margin:0 auto;padding:0 2.5rem 6rem;display:grid;grid-template-columns:1fr 1fr;gap:2.5rem}
+.work-card{text-decoration:none;color:inherit;display:block}
+.work-thumb{
+  aspect-ratio:4/3;border-radius:16px;overflow:hidden;position:relative;
+  transition:transform .5s cubic-bezier(.6,0,.2,1);
+}
+.work-card:hover .work-thumb{transform:scale(.98)}
+.work-thumb::after{
+  content:'view case ↗';position:absolute;inset:auto auto 14px 14px;
+  background:var(--acid);color:var(--ink);
+  font-family:var(--font-body);font-weight:500;font-size:.68rem;letter-spacing:.06em;text-transform:uppercase;
+  padding:.45rem .85rem;border-radius:999px;
+  opacity:0;transform:translateY(8px);transition:.35s;
+}
+.work-card:hover .work-thumb::after{opacity:1;transform:translateY(0)}
+.t1{background:linear-gradient(140deg,#151413,var(--ink) 50%,var(--lilac) 160%)}
+.t2{background:radial-gradient(circle at 20% 30%,var(--lilac),#5d4dcb 85%)}
+.t3{background:linear-gradient(30deg,var(--acid),#8a9c00 90%)}
+.t4{background:conic-gradient(from 90deg at 60% 40%,var(--ink),var(--lilac) 45%,var(--ink) 85%)}
+.t5{background:linear-gradient(150deg,#ffb08a,var(--ink) 80%)}
+.t6{background:radial-gradient(circle at 30% 70%,var(--acid),#1D1C1B 85%)}
+.t7{background:linear-gradient(160deg,#5d4dcb,var(--lilac) 60%,#1D1C1B 130%)}
+.work-thumb.has-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.work-thumb.has-img::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(0,0,0,.05),transparent 30%,rgba(0,0,0,.35));
+}
+.work-thumb .bignum{
+  position:absolute;right:16px;top:6px;z-index:1;
+  font-family:var(--font-display);font-weight:900;font-size:5rem;
+  color:rgba(237,237,233,.18);
+}
+.work-thumb.has-img .bignum{color:rgba(255,255,255,.55);text-shadow:0 2px 12px rgba(0,0,0,.35)}
+.work-meta{display:flex;justify-content:space-between;align-items:baseline;margin-top:1rem;gap:1rem}
+.work-meta h3{font-family:var(--font-display);font-weight:700;font-size:1.25rem;letter-spacing:-.01em}
+.work-meta .client{font-family:var(--font-body);font-weight:500;font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);white-space:nowrap}
+.tags{margin-top:.55rem;display:flex;flex-wrap:wrap;gap:.4rem}
+.tags span{
+  font-family:var(--font-body);font-weight:500;font-size:.6rem;letter-spacing:.08em;text-transform:uppercase;
+  border:1px solid var(--line);border-radius:999px;padding:.28rem .65rem;color:var(--ink-soft);
+  transition:.25s;
+}
+.work-card:hover .tags span{border-color:var(--lilac);color:var(--ink)}
+.view-all{display:flex;justify-content:center;padding:0 0 7rem}
+.view-all a{
+  font-family:var(--font-body);font-weight:500;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--ink);text-decoration:none;
+  border:1px solid var(--ink);border-radius:999px;padding:.9rem 2rem;
+  transition:.3s;
+}
+.view-all a:hover{background:var(--ink);color:var(--acid)}
+
+/* ---------- SERVICES ---------- */
+.services{max-width:1350px;margin:0 auto;padding:0 2.5rem 7rem;display:grid;grid-template-columns:repeat(3,1fr);gap:3rem}
+.svc h3{
+  font-family:var(--font-display);font-weight:700;
+  font-size:clamp(1.6rem,2.6vw,2.2rem);letter-spacing:-.02em;line-height:1.05;margin-bottom:1.2rem;
+}
+.svc h3 .dot{display:inline-block;width:.75em;height:.75em;border-radius:50%;vertical-align:baseline;margin:0 .1em}
+.d1{background:var(--lilac)}.d2{background:var(--acid)}.d3{background:var(--ink)}
+.svc .desc{font-size:.9rem;line-height:1.6;color:var(--ink-soft);margin-bottom:1.6rem;min-height:4.2em}
+.svc ol{list-style:none;border-top:1px solid var(--line)}
+.svc li{
+  display:flex;gap:1rem;align-items:baseline;
+  padding:.75rem 0;border-bottom:1px solid var(--line);
+  font-size:.9rem;transition:padding-left .3s,color .3s;
+}
+.svc li:hover{padding-left:.5rem;color:#7d6ce0}
+.svc li .n{font-family:var(--font-body);font-weight:500;font-size:.62rem;letter-spacing:.06em;color:var(--ink-soft);min-width:3.4em}
+
+/* ---------- CLIENTS ---------- */
+.clients-marquee{border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden;padding:2rem 0}
+.clients-marquee .track{display:flex;gap:4.5rem;width:max-content;animation:scrollX 30s linear infinite;align-items:center}
+.clients-marquee .logo{
+  font-family:var(--font-display);font-weight:700;font-size:1.35rem;letter-spacing:-.01em;
+  color:var(--ink-soft);white-space:nowrap;transition:color .3s;
+}
+.clients-marquee .logo:hover{color:var(--ink)}
+.clients-marquee .logo.alt{font-weight:400;font-size:1.1rem;font-style:italic}
+
+/* ---------- CTA ---------- */
+.cta{padding:9rem 2.5rem 4rem;text-align:center}
+.cta .cta-small{font-family:var(--font-body);font-weight:500;font-size:.75rem;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-soft)}
+.cta h2{
+  font-family:var(--font-display);font-weight:900;
+  font-size:clamp(2.6rem,7vw,5.8rem);letter-spacing:-.03em;margin:.8rem 0 0;
+}
+.cta h2 a{color:inherit;text-decoration:none;position:relative;display:inline-block}
+.cta h2 a::after{
+  content:'';position:absolute;left:0;bottom:.05em;width:100%;height:.08em;background:var(--lilac);
+  transform:scaleX(0);transform-origin:left;transition:transform .5s cubic-bezier(.6,0,.2,1);
+}
+.cta h2 a:hover::after{transform:scaleX(1)}
+
+/* ---------- FOOTER (BRANDBRIEF STYLE) ---------- */
+footer{padding:2rem 1.2rem 1.2rem}
+.foot-card{
+  background:var(--card);
+  border-radius:28px;
+  padding:3rem 3rem 1.6rem;
+  max-width:1600px;margin:0 auto;
+}
+.foot-top{
+  display:grid;
+  grid-template-columns:1.4fr 1fr 1fr 1fr;
+  gap:2.5rem;
+  margin-bottom:7rem;
+}
+.eyebrow{
+  font-family:var(--font-body);font-weight:600;
+  font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--ink-soft);margin-bottom:1rem;
+}
+.foot-id p{font-family:var(--font-body);font-weight:600;font-size:1.05rem;line-height:1.45}
+.foot-id .block{margin-bottom:2.2rem}
+.foot-id a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--lilac)}
+.foot-col ul{list-style:none}
+.foot-col li{margin-bottom:.7rem}
+.foot-col a{
+  color:var(--ink);text-decoration:none;font-size:.95rem;font-weight:500;
+  position:relative;transition:color .25s;
+}
+.foot-col a:hover{color:#7d6ce0}
+.wordmark{
+  font-family:var(--font-display);font-weight:900;
+  font-size:clamp(3.2rem,12.5vw,13.5rem);
+  letter-spacing:-.045em;line-height:.85;
+  text-transform:uppercase;white-space:nowrap;
+  text-align:left;
+}
+.wordmark sup{font-size:.22em;vertical-align:super;letter-spacing:0}
+.wordmark .sub{
+  display:block;
+  font-size:clamp(1rem,3.2vw,3.4rem);
+  font-weight:700;letter-spacing:.02em;
+  color:var(--lilac);
+  margin-top:.15em;
+}
+.foot-legal{
+  display:flex;flex-wrap:wrap;align-items:center;gap:1.6rem;
+  border-top:1px solid var(--line);
+  margin-top:2.5rem;padding-top:1.3rem;
+  font-size:.78rem;color:var(--ink-soft);
+}
+.foot-legal a{color:var(--ink-soft);text-decoration:none;transition:color .25s}
+.foot-legal a:hover{color:var(--ink)}
+.foot-legal .copy{margin-right:auto}
+.soc{
+  display:inline-flex;width:26px;height:26px;border-radius:6px;
+  background:var(--ink);color:var(--card);
+  align-items:center;justify-content:center;
+  font-family:var(--font-display);font-weight:700;font-size:.62rem;
+  text-decoration:none;transition:background .25s,color .25s;
+}
+.soc:hover{background:var(--lilac);color:var(--ink)}
+
+/* ---------- REVEAL ---------- */
+.reveal{opacity:0;transform:translateY(40px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.7,.3,1)}
+.reveal.in{opacity:1;transform:none}
+
+@media(max-width:900px){
+  .drag-item{max-width:38vw;max-height:26vh}
+  .work{grid-template-columns:1fr}
+  .services{grid-template-columns:1fr}
+  .nav-links{gap:1.3rem}
+  .sec-note{margin:1.8rem 1.5rem 2.5rem;padding-right:0}
+  .intro{padding:4.5rem 1.5rem 5rem}
+  nav{padding:1.2rem 1.5rem}
+  .work,.services{padding-left:1.5rem;padding-right:1.5rem}
+  .cta{padding:6rem 1.5rem 3rem}
+  .foot-card{padding:2rem 1.5rem 1.2rem}
+  .foot-top{grid-template-columns:1fr 1fr;gap:2rem;margin-bottom:4rem}
+  .wordmark{white-space:normal}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-logo">RD*</a>
+  <div class="nav-links">
+    <a href="#work">work</a>
+    <a href="#services">about</a>
+    <a href="#contact">lab</a>
+  </div>
+</nav>
+
+<!-- HERO: DRAG PLAYGROUND -->
+<header class="hero" id="playground">
+  <div class="hero-hint">
+    <h1>creative<br>chaos<em>*</em></h1>
+    <p>( drag the pieces around )</p>
+  </div>
+
+  <div class="drag-item" style="width:220px;height:220px" data-x="6" data-y="14" data-r="-7">
+    <img src="Images/Hero/11669919.png" alt="ref">
+    <span class="tag">content &amp; voice</span>
+  </div>
+  <div class="drag-item" style="width:220px;height:220px" data-x="76" data-y="8" data-r="5">
+    <img src="Images/Hero/11669921.png" alt="ref">
+    <span class="tag">launch campaigns</span>
+  </div>
+  <div class="drag-item" style="width:220px;height:220px" data-x="70" data-y="62" data-r="-4">
+    <img src="Images/Hero/11669922.png" alt="ref">
+    <span class="tag">newsletter growth</span>
+  </div>
+  <div class="drag-item" style="width:220px;height:220px" data-x="12" data-y="58" data-r="8">
+    <img src="Images/Hero/11669928.png" alt="ref">
+    <span class="tag">ai &amp; automation</span>
+  </div>
+  <div class="drag-item" style="width:220px;height:220px" data-x="42" data-y="30" data-r="-3">
+    <img src="Images/Hero/11669931.png" alt="ref">
+    <span class="tag">community &amp; events</span>
+  </div>
+</header>
+
+<!-- BIG INTRO -->
+<section class="intro reveal">
+  <p>
+    Laura is a <span class="chip chip-a"></span> creative &amp; brand leader, 10+ years
+    across Europe and LatAm, now working the intersection of <span class="hl">Content Strategy</span>,
+    <span class="chip chip-b"></span> AI-Powered Workflows and Digital Marketing
+    <span class="chip chip-c"></span> — editorial direction, brand voice, campaigns that scale.
+    <span class="mut">She runs teams end-to-end,</span> <span class="chip chip-d"></span>
+    <span class="mut">across product, growth and engineering, with zero patience for "just throw budget at Meta Ads."</span>
+  </p>
+</section>
+
+<!-- FEATURED WORK -->
+<div class="sec-head" id="work">
+  <div class="track">
+    <h2>featured work<em>*</em></h2><h2>featured work<em>*</em></h2><h2>featured work<em>*</em></h2><h2>featured work<em>*</em></h2>
+  </div>
+</div>
+<p class="sec-note reveal"><b>*Campaigns, content and communities that outgrew the brief.</b> Marketing work carried end-to-end, from teaser to launch to the people who kept showing up.</p>
+
+<section class="work">
+  <a class="work-card reveal" href="doiy-eatmysocks-case-study.html">
+    <div class="work-thumb has-img"><img src="Images/doiy/cover.png" alt="DOIY & Eat My Socks cover"><span class="bignum">01</span></div>
+    <div class="work-meta"><h3>Content &amp; Events Campaign</h3><span class="client">DOIY &amp; Eat My Socks — The Wow Effect Co.</span></div>
+    <div class="tags"><span>Content Pillars</span><span>UGC &amp; Influencer</span><span>Paid + Organic</span></div>
+  </a>
+  <a class="work-card reveal" href="eventme-case-study.html">
+    <div class="work-thumb has-img"><img src="Images/eventme/cover.png" alt="EventMe cover"><span class="bignum">02</span></div>
+    <div class="work-meta"><h3>Brand &amp; Communication</h3><span class="client">EventMe, Serbia</span></div>
+    <div class="tags"><span>Brand Voice</span><span>Content Direction</span><span>Multi-channel</span></div>
+  </a>
+  <a class="work-card reveal" href="timeling-case-study.html">
+    <div class="work-thumb has-img"><img src="Images/timeling/cover.png" alt="Timeling cover"><span class="bignum">03</span></div>
+    <div class="work-meta"><h3>Copy Campaign: Online Is Good But Offline Is Better</h3><span class="client">Timeling, Sweden</span></div>
+    <div class="tags"><span>Campaign Copy</span><span>Tone of Voice</span><span>Relaunch</span></div>
+  </a>
+  <a class="work-card reveal" href="artskool-case-study.html">
+    <div class="work-thumb has-img"><img src="Images/artskool/cover.png" alt="Artskool cover"><span class="bignum">04</span></div>
+    <div class="work-meta"><h3>Creative Campaigns</h3><span class="client">Artskool, Medellín</span></div>
+    <div class="tags"><span>Community</span><span>Editorial</span><span>Co-founder</span></div>
+  </a>
+</section>
+<div class="view-all reveal"><a href="#">view all work</a></div>
+
+<!-- WHAT I DO -->
+<div class="sec-head" id="services">
+  <div class="track">
+    <h2>what i do<em>*</em></h2><h2>what i do<em>*</em></h2><h2>what i do<em>*</em></h2><h2>what i do<em>*</em></h2><h2>what i do<em>*</em></h2>
+  </div>
+</div>
+<p class="sec-note reveal"><b>*Marketing that gets its hands dirty,</b> measured down to the last point on a banner — never "just throw budget at Meta Ads."</p>
+
+<section class="services">
+  <div class="svc reveal">
+    <h3>content <span class="dot d1"></span> with voice</h3>
+    <p class="desc">(01) Blog, socials, newsletters — written, edited, and kept alive with real feedback loops. Market reports and reference guides included.</p>
+    <ol>
+      <li><span class="n">01.01</span>Blog &amp; Editorial Content</li>
+      <li><span class="n">01.02</span>Newsletter Strategy</li>
+      <li><span class="n">01.03</span>Social Copy (X, LinkedIn)</li>
+      <li><span class="n">01.04</span>Brand Voice &amp; Tone</li>
+      <li><span class="n">01.05</span>Market Reports &amp; Guides</li>
+      <li><span class="n">01.06</span>Bilingual Content (ES/EN)</li>
+    </ol>
+  </div>
+  <div class="svc reveal">
+    <h3><span class="dot d2"></span> launches, hollywood-style</h3>
+    <p class="desc">(02) End-to-end campaigns from idea to production — teaser, preview, launch. Comfortable briefing and co-directing a creative agency.</p>
+    <ol>
+      <li><span class="n">02.01</span>Campaign Strategy</li>
+      <li><span class="n">02.02</span>Teaser–Preview–Launch</li>
+      <li><span class="n">02.03</span>Creative Direction &amp; Briefs</li>
+      <li><span class="n">02.04</span>AI Tools &amp; Automation</li>
+      <li><span class="n">02.05</span>Performance Measurement</li>
+      <li><span class="n">02.06</span>Agency Collaboration</li>
+    </ol>
+  </div>
+  <div class="svc reveal">
+    <h3>community <span class="dot d3"></span> &amp; events</h3>
+    <p class="desc">(03) Building audiences, not just posting schedules. Workshops, UGC/influencer programs, and cross-functional alignment across Product, Growth and Demand Gen.</p>
+    <ol>
+      <li><span class="n">03.01</span>Workshops &amp; Public Speaking</li>
+      <li><span class="n">03.02</span>UGC &amp; Influencer Programs</li>
+      <li><span class="n">03.03</span>Guerrilla &amp; Organic Marketing</li>
+      <li><span class="n">03.04</span>Cross-functional Collaboration</li>
+      <li><span class="n">03.05</span>Startup Pivots, No Fear</li>
+      <li><span class="n">03.06</span>End-to-end Delivery</li>
+    </ol>
+  </div>
+</section>
+
+<!-- CLIENTS -->
+<div class="sec-head">
+  <div class="track">
+    <h2>clients<em>*</em></h2><h2>clients<em>*</em></h2><h2>clients<em>*</em></h2><h2>clients<em>*</em></h2><h2>clients<em>*</em></h2><h2>clients<em>*</em></h2>
+  </div>
+</div>
+<p class="sec-note reveal"><b>*Teams, brands and people who trusted the process.</b></p>
+
+<div class="clients-marquee">
+  <div class="track">
+    <span class="logo">DOIY</span><span class="logo alt">eat my socks</span>
+    <span class="logo">EDUCAHUB.AI</span><span class="logo alt">educaedtech r&amp;d</span>
+    <span class="logo">DENTSU CREATIVE</span><span class="logo alt">imaginbank</span>
+    <span class="logo">EVENTME</span><span class="logo alt">timeling</span>
+    <span class="logo">MOCA PLATFORM</span><span class="logo alt">artskool</span>
+    <span class="logo">DOIY</span><span class="logo alt">eat my socks</span>
+    <span class="logo">EDUCAHUB.AI</span><span class="logo alt">educaedtech r&amp;d</span>
+    <span class="logo">DENTSU CREATIVE</span><span class="logo alt">imaginbank</span>
+    <span class="logo">EVENTME</span><span class="logo alt">timeling</span>
+    <span class="logo">MOCA PLATFORM</span><span class="logo alt">artskool</span>
+  </div>
+</div>
+
+<!-- CTA -->
+<section class="cta" id="contact">
+  <p class="cta-small">got a project in mind?</p>
+  <h2>let's talk <a href="mailto:lerosedays@icloud.com">lerosedays@icloud.com</a></h2>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-card reveal">
+    <div class="foot-top">
+      <div class="foot-id">
+        <div class="block">
+          <p class="eyebrow">Address</p>
+          <p>Headquarter<br>ROSEDAYS™<br>Barcelona</p>
+        </div>
+        <div class="block">
+          <p class="eyebrow">Email</p>
+          <p><a href="mailto:lerosedays@icloud.com">lerosedays@icloud.com</a></p>
+        </div>
+      </div>
+      <div class="foot-col">
+        <p class="eyebrow">Pages</p>
+        <ul>
+          <li><a href="#work">Work</a></li>
+          <li><a href="#services">What I Do</a></li>
+          <li><a href="#">Lab</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="#">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <p class="eyebrow">Projects</p>
+        <ul>
+          <li><a href="doiy-eatmysocks-case-study.html">DOIY &amp; Eat My Socks</a></li>
+          <li><a href="eventme-case-study.html">EventMe</a></li>
+          <li><a href="timeling-case-study.html">Timeling</a></li>
+          <li><a href="artskool-case-study.html">Artskool</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <p class="eyebrow">Industries</p>
+        <ul>
+          <li><a href="#">EdTech &amp; Learning</a></li>
+          <li><a href="#">E-commerce &amp; DTC</a></li>
+          <li><a href="#">AI &amp; Automation</a></li>
+          <li><a href="#">Brand &amp; Campaigns</a></li>
+          <li><a href="#">Fashion &amp; Lifestyle</a></li>
+          <li><a href="#">Social Impact</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <h2 class="wordmark">ROSEDAYS<sup>™</sup><span class="sub">BRAND LAB</span></h2>
+
+    <div class="foot-legal">
+      <span class="copy">© 2022–2026 ROSEDAYS™ BRAND LAB – Active since 2022. Barcelona.</span>
+      <a href="#">Collaboration Agreement</a>
+      <a href="#">License Agreement</a>
+      <a href="#">Terms of Service</a>
+      <a href="#">Privacy Policy</a>
+      <a href="#">Cookie Policy</a>
+      <a href="#">Imprint</a>
+      <a href="#" class="soc">in</a>
+      <a href="#" class="soc">ig</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+const io=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}
+  });
+},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+/* ---------- DRAG PLAYGROUND ---------- */
+(function(){
+  const stage=document.getElementById('playground');
+  if(!stage)return;
+  const items=[...stage.querySelectorAll('.drag-item')];
+  let topZ=10;
+  const FRICTION=.94, BOUNCE=.55;
+
+  items.forEach(el=>{
+    const s={x:0,y:0,vx:0,vy:0,r:parseFloat(el.dataset.r)||0,vr:0,dragging:false,px:0,py:0,raf:null};
+    const place=()=>{
+      s.x=(parseFloat(el.dataset.x)/100)*(stage.clientWidth-el.offsetWidth);
+      s.y=(parseFloat(el.dataset.y)/100)*(stage.clientHeight-el.offsetHeight);
+      render();
+    };
+    const render=()=>{el.style.transform=`translate(${s.x}px,${s.y}px) rotate(${s.r}deg)`};
+    const clampBounce=()=>{
+      const maxX=stage.clientWidth-el.offsetWidth;
+      const maxY=stage.clientHeight-el.offsetHeight;
+      if(s.x<0){s.x=0;s.vx*=-BOUNCE}
+      if(s.x>maxX){s.x=maxX;s.vx*=-BOUNCE}
+      if(s.y<0){s.y=0;s.vy*=-BOUNCE}
+      if(s.y>maxY){s.y=maxY;s.vy*=-BOUNCE}
+    };
+    const momentum=()=>{
+      s.vx*=FRICTION; s.vy*=FRICTION; s.vr*=FRICTION;
+      s.x+=s.vx; s.y+=s.vy; s.r+=s.vr;
+      clampBounce(); render();
+      if(Math.abs(s.vx)>.05||Math.abs(s.vy)>.05||Math.abs(s.vr)>.05){
+        s.raf=requestAnimationFrame(momentum);
+      }
+    };
+    el.addEventListener('pointerdown',e=>{
+      e.preventDefault();
+      cancelAnimationFrame(s.raf);
+      s.dragging=true; s.px=e.clientX; s.py=e.clientY;
+      s.vx=0; s.vy=0; s.vr=0;
+      el.classList.add('grabbing');
+      el.style.zIndex=++topZ;
+      el.setPointerCapture(e.pointerId);
+    });
+    el.addEventListener('pointermove',e=>{
+      if(!s.dragging)return;
+      const dx=e.clientX-s.px, dy=e.clientY-s.py;
+      s.px=e.clientX; s.py=e.clientY;
+      s.x+=dx; s.y+=dy;
+      s.vx=dx; s.vy=dy;
+      s.vr=dx*.12;
+      s.r+=dx*.06;
+      clampBounce(); render();
+    });
+    const release=()=>{
+      if(!s.dragging)return;
+      s.dragging=false;
+      el.classList.remove('grabbing');
+      s.raf=requestAnimationFrame(momentum);
+    };
+    el.addEventListener('pointerup',release);
+    el.addEventListener('pointercancel',release);
+
+    place();
+    window.addEventListener('resize',place);
+
+    el.style.opacity='0';
+    setTimeout(()=>{
+      el.style.transition='opacity .6s';
+      el.style.opacity='1';
+      s.vy=4+Math.random()*4;
+      s.vx=(Math.random()-.5)*6;
+      s.raf=requestAnimationFrame(momentum);
+    },200+items.indexOf(el)*140);
+  });
+})();
+</script>
+
+</body>
+</html>

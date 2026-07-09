@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Artskool — Brand &amp; Community — ROSEDAYS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,700,900,1&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,400;12..96,500;12..96,600;12..96,700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#EDEDE9;--ink:#1D1C1B;--lilac:#A89CF7;--acid:#E6FF00;
+  --ink-soft:rgba(29,28,27,.55);--line:rgba(29,28,27,.14);--card:#F6F6F3;
+  --font-display:'Satoshi',sans-serif;--font-body:'Bricolage Grotesque',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--font-body);overflow-x:hidden}
+::selection{background:var(--acid);color:var(--ink)}
+
+nav{position:fixed;inset:0 0 auto 0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:1.4rem 2.5rem;mix-blend-mode:difference;color:#fff}
+nav a{color:#fff;text-decoration:none;font-family:var(--font-body);font-weight:500;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;position:relative}
+nav a::after{content:'';position:absolute;left:0;bottom:-4px;width:0;height:1px;background:#fff;transition:width .35s cubic-bezier(.6,0,.2,1)}
+nav a:hover::after{width:100%}
+.nav-logo{font-family:var(--font-display);font-weight:900;font-size:1.05rem;letter-spacing:-.01em}
+.nav-links{display:flex;gap:2.2rem}
+
+.case-hero{padding:9rem 2.5rem 4rem;max-width:1350px;margin:0 auto;
+  background:radial-gradient(circle at 85% 10%,rgba(230,255,0,.16),transparent 45%),radial-gradient(circle at 10% 90%,rgba(168,156,247,.22),transparent 40%);}
+.case-back{display:inline-flex;align-items:center;gap:.5rem;text-decoration:none;color:var(--ink-soft);font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;font-weight:500;margin-bottom:2.5rem}
+.case-back:hover{color:var(--ink)}
+.case-eyebrow{font-size:.75rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft);font-weight:600;margin-bottom:1rem}
+.case-hero h1{font-family:var(--font-display);font-weight:900;font-size:clamp(2.6rem,7vw,5.4rem);letter-spacing:-.03em;line-height:.98}
+.case-hero h1 span{color:var(--lilac)}
+.case-hero .tagline{font-size:1.1rem;color:var(--ink-soft);max-width:620px;margin-top:1.4rem;line-height:1.55}
+
+.case-meta{max-width:1350px;margin:0 auto;padding:0 2.5rem 6rem;display:grid;grid-template-columns:repeat(3,1fr);gap:2.5rem;border-top:1px solid var(--line);padding-top:3rem}
+.case-meta .col .eyebrow{font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:var(--lilac);font-weight:700;margin-bottom:.9rem}
+.case-meta .col p{font-size:.98rem;line-height:1.65;color:var(--ink-soft)}
+.case-meta .col p b{color:var(--ink);font-weight:600}
+
+.sec-head{border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden;padding:1.1rem 2.5rem;max-width:1350px;margin:0 auto}
+.sec-head h2{font-family:var(--font-display);font-weight:900;font-size:clamp(1.6rem,4vw,2.6rem);letter-spacing:-.03em;text-transform:lowercase}
+.sec-head h2 span{color:var(--lilac)}
+.sec-head p{font-size:.85rem;color:var(--ink-soft);margin-top:.4rem;max-width:600px}
+
+.video-grid{max-width:1350px;margin:0 auto;padding:2.5rem 2.5rem 5rem;display:grid;grid-template-columns:repeat(2,1fr);gap:1.6rem}
+.video-card{border-radius:16px;overflow:hidden;background:#000;position:relative;box-shadow:0 10px 30px rgba(29,28,27,.14)}
+.video-card video{display:block;width:100%;height:100%;aspect-ratio:9/16;object-fit:cover}
+.video-card .cap{position:absolute;left:10px;bottom:10px;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:#fff;background:rgba(0,0,0,.55);padding:.3rem .6rem;border-radius:999px;pointer-events:none}
+
+.cta{padding:9rem 2.5rem 4rem;text-align:center}
+.cta .cta-small{font-family:var(--font-body);font-weight:500;font-size:.75rem;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-soft)}
+.cta h2{font-family:var(--font-display);font-weight:900;font-size:clamp(2.6rem,7vw,5.8rem);letter-spacing:-.03em;margin:.8rem 0 0}
+.cta h2 a{color:inherit;text-decoration:none;position:relative;display:inline-block}
+.cta h2 a::after{content:'';position:absolute;left:0;bottom:.05em;width:100%;height:.08em;background:var(--lilac);transform:scaleX(0);transform-origin:left;transition:transform .5s cubic-bezier(.6,0,.2,1)}
+.cta h2 a:hover::after{transform:scaleX(1)}
+
+footer{padding:2rem 1.2rem 1.2rem}
+.foot-card{background:var(--card);border-radius:28px;padding:3rem 3rem 1.6rem;max-width:1600px;margin:0 auto}
+.foot-legal{display:flex;flex-wrap:wrap;align-items:center;gap:1.6rem;font-size:.78rem;color:var(--ink-soft)}
+.foot-legal a{color:var(--ink-soft);text-decoration:none}
+.wordmark{font-family:var(--font-display);font-weight:900;font-size:clamp(3.2rem,12.5vw,13.5rem);letter-spacing:-.045em;line-height:.85;text-transform:uppercase;white-space:nowrap;margin-bottom:2.5rem}
+.wordmark sup{font-size:.22em;vertical-align:super;letter-spacing:0}
+.wordmark .sub{display:block;font-size:clamp(1rem,3.2vw,3.4rem);font-weight:700;letter-spacing:.02em;color:var(--lilac);margin-top:.15em}
+
+.reveal{opacity:0;transform:translateY(40px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.7,.3,1)}
+.reveal.in{opacity:1;transform:none}
+
+@media(max-width:900px){
+  nav{padding:1.2rem 1.5rem}
+  .case-hero{padding:6rem 1.5rem 3rem}
+  .case-meta{grid-template-columns:1fr;padding:0 1.5rem 4rem;gap:2rem}
+  .sec-head{padding:1.1rem 1.5rem}
+  .video-grid{padding:2rem 1.5rem 3rem;gap:1rem}
+  .foot-card{padding:2rem 1.5rem 1.2rem}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="portfolio_1.html" class="nav-logo">RD*</a>
+  <div class="nav-links">
+    <a href="portfolio_1.html#work">work</a>
+    <a href="portfolio_1.html#services">about</a>
+    <a href="portfolio_1.html#contact">lab</a>
+  </div>
+</nav>
+
+<section class="case-hero reveal">
+  <a class="case-back" href="portfolio_1.html#work">← back to work</a>
+  <p class="case-eyebrow">Co-founder &amp; Creative Director — Artskool, Medellín</p>
+  <h1>Community from <span>zero</span></h1>
+  <p class="tagline">A creation and learning space for sharing creative tools freely, collaboratively, and with social impact. The challenge: build community from zero, with an honest narrative that would attract both emerging creatives and industry references.</p>
+</section>
+
+<section class="case-meta">
+  <div class="col reveal">
+    <p class="eyebrow">The Challenge</p>
+    <p>Build <b>community from zero</b>, with an honest narrative that would attract both emerging creatives and industry references.</p>
+  </div>
+  <div class="col reveal">
+    <p class="eyebrow">My Role</p>
+    <p><b>Co-founder and creative director.</b> Brand direction, content design and scheduling, social media management, editorial communication, and coordination with creative profiles and influencers.</p>
+  </div>
+  <div class="col reveal">
+    <p class="eyebrow">The Solution</p>
+    <p>Organic strategy built on <b>authenticity and real connection</b>. Content aimed at generating value and conversation, not just visibility. A tone that stays close, accessible, and coherent with the mission of democratizing creativity.</p>
+  </div>
+</section>
+
+<div class="sec-head">
+  <h2>copy-content <span>&amp; community</span></h2>
+  <p>Content with purpose, made to spark conversation among creatives — not just reach.</p>
+</div>
+<div class="video-grid reveal">
+  <div class="video-card"><video controls playsinline preload="metadata" src="videos/copy-content/copy-1.mp4"></video><span class="cap">recipe for a more creative life</span></div>
+  <div class="video-card"><video controls playsinline preload="metadata" src="videos/Coffee&amp;draw.mp4"></video><span class="cap">coffee &amp; draw, workshop</span></div>
+</div>
+
+<section class="cta" id="contact">
+  <p class="cta-small">got a project in mind?</p>
+  <h2>let's talk <a href="mailto:lerosedays@icloud.com">lerosedays@icloud.com</a></h2>
+</section>
+
+<footer>
+  <div class="foot-card reveal">
+    <h2 class="wordmark">ROSEDAYS<sup>™</sup><span class="sub">BRAND LAB</span></h2>
+    <div class="foot-legal">
+      <span>© 2022–2026 ROSEDAYS™ BRAND LAB – Barcelona.</span>
+      <a href="portfolio_1.html#work">Work</a>
+      <a href="portfolio_1.html#contact">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+const io=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});
+},{threshold:.1});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+
+</body>
+</html>
