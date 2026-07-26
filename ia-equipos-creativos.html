@@ -40,6 +40,22 @@ nav a:hover::after{width:100%}
   padding:9rem 2.5rem 4rem;max-width:1350px;margin:0 auto;
   background:radial-gradient(circle at 85% 10%,rgba(168,156,247,.28),transparent 45%),radial-gradient(circle at 10% 90%,rgba(230,255,0,.14),transparent 40%);
 }
+.case-hero.with-media{display:grid;grid-template-columns:1.15fr .85fr;gap:3.5rem;align-items:center}
+
+/* ---------- MEDIA (video/photo panels, framed like the rest of the site) ---------- */
+.media-frame{
+  border-radius:24px;overflow:hidden;position:relative;
+  box-shadow:0 30px 70px rgba(29,28,27,.16);
+  aspect-ratio:4/5;
+}
+.media-frame video,.media-frame img{display:block;width:100%;height:100%;object-fit:cover}
+.media-frame .tag{
+  position:absolute;left:1.1rem;bottom:1.1rem;background:#fff;color:var(--ink);
+  font-family:var(--font-body);font-weight:700;font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;
+  padding:.5rem 1rem;border-radius:999px;box-shadow:0 8px 20px rgba(0,0,0,.18);
+}
+.cta-media{max-width:340px;margin:2.6rem auto 0}
+.cta-media .media-frame{aspect-ratio:9/13}
 .case-back{display:inline-flex;align-items:center;gap:.5rem;text-decoration:none;color:var(--ink-soft);font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;font-weight:500;margin-bottom:2.5rem}
 .case-back:hover{color:var(--ink)}
 .case-eyebrow{font-size:.75rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft);font-weight:600;margin-bottom:1rem}
@@ -191,14 +207,22 @@ footer{padding:2rem 1.2rem 1.2rem}
 </nav>
 
 <!-- HERO -->
-<section class="case-hero reveal">
-  <a class="case-back" href="index.html#services">← back to lab</a>
-  <p class="case-eyebrow">Workshop Práctico — Julio 2026</p>
-  <h1>IA para <span>equipos<br>creativos*</span></h1>
-  <p class="tagline">Tu equipo ya usa IA. La única pregunta es si lo hace con criterio o a ciegas.</p>
-  <div class="byline">
-    <b>Propuesta diseñada por Laura Rosa Diaz</b>
-    <span>Brand &amp; Creative Consultant</span>
+<section class="case-hero with-media reveal">
+  <div>
+    <a class="case-back" href="index.html#services">← back to lab</a>
+    <p class="case-eyebrow">Workshop Práctico — Julio 2026</p>
+    <h1>IA para <span>equipos<br>creativos*</span></h1>
+    <p class="tagline">Tu equipo ya usa IA. La única pregunta es si lo hace con criterio o a ciegas.</p>
+    <div class="byline">
+      <b>Propuesta diseñada por Laura Rosa Diaz</b>
+      <span>Brand &amp; Creative Consultant</span>
+    </div>
+  </div>
+  <div class="media-frame">
+    <video autoplay muted loop playsinline poster="Images/workshop/flamingo-poster.jpg">
+      <source src="Images/workshop/flamingo.mp4" type="video/mp4">
+    </video>
+    <span class="tag">Dirección creativa con IA</span>
   </div>
 </section>
 
@@ -375,6 +399,13 @@ footer{padding:2rem 1.2rem 1.2rem}
     <p>Portfolio: <a href="https://rosedays.myportfolio.com" target="_blank" rel="noopener">rosedays.myportfolio.com</a> · LinkedIn: <a href="#" target="_blank" rel="noopener">Rosedays</a></p>
   </div>
   <p class="closing-note">La IA no sustituye la creatividad. Sustituye los procesos mal definidos.</p>
+  <div class="cta-media">
+    <div class="media-frame">
+      <video autoplay muted loop playsinline poster="Images/workshop/sagrada-poster.jpg">
+        <source src="Images/workshop/sagrada-familia.mp4" type="video/mp4">
+      </video>
+    </div>
+  </div>
 </section>
 
 <!-- FOOTER -->
