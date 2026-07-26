@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>ROSEDAYS — Stories Charla Anti-Slop</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,700,900,1&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,400;12..96,500;12..96,600;12..96,700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#EDEDE9;
+  --ink:#1D1C1B;
+  --lilac:#A89CF7;
+  --acid:#E6FF00;
+  --font-display:'Satoshi',sans-serif;
+  --font-body:'Bricolage Grotesque',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#3a3a3a;font-family:var(--font-body)}
+
+.story{
+  width:1080px;height:1920px;
+  position:relative;overflow:hidden;
+  margin:0 auto 40px;
+}
+
+/* ============ STORY 1 — EL PROBLEMA (deliberately ugly/generic) ============ */
+.story-1{background:#F4F4F1;color:#111}
+.s1-pad{position:relative;z-index:1;height:100%;padding:140px 64px 100px;display:flex;flex-direction:column}
+.s1-head{
+  font-family:var(--font-display);font-weight:900;font-size:56px;line-height:1.15;
+  letter-spacing:-.01em;color:var(--ink);
+}
+.slop-grid{
+  margin-top:56px;display:grid;grid-template-columns:1fr 1fr;gap:18px;flex:1;
+}
+.slop-card{
+  border-radius:10px;padding:22px;display:flex;flex-direction:column;justify-content:center;
+  text-align:center;color:#fff;position:relative;overflow:hidden;
+}
+.slop-card .num{font-family:Impact,'Arial Black',sans-serif;font-size:44px;line-height:1;text-shadow:0 2px 0 rgba(0,0,0,.25)}
+.slop-card .txt{font-family:'Arial Black',Impact,sans-serif;font-size:22px;line-height:1.15;margin-top:8px;text-transform:uppercase;text-shadow:0 2px 0 rgba(0,0,0,.25)}
+.slop-card .badge{
+  position:absolute;top:10px;right:10px;background:rgba(255,255,255,.85);color:#111;
+  font-family:Arial,sans-serif;font-weight:800;font-size:14px;padding:4px 8px;border-radius:5px;
+}
+.c1{background:linear-gradient(135deg,#ff5f6d,#ffc371)}
+.c2{background:linear-gradient(135deg,#00c9a7,#0072ff)}
+.c3{background:linear-gradient(135deg,#f857a6,#ff5858)}
+.c4{background:linear-gradient(135deg,#f7971e,#ffd200)}
+.c5{background:linear-gradient(135deg,#7f00ff,#e100ff)}
+.c6{background:repeating-linear-gradient(45deg,#111 0 14px,#ffd200 14px 28px)}
+.s1-foot{
+  margin-top:40px;text-align:center;
+  font-family:var(--font-body);font-weight:600;font-size:26px;color:#555;
+}
+.s1-foot b{color:var(--ink)}
+.s1-arrow{margin-top:14px;text-align:center;font-family:var(--font-body);font-weight:700;font-size:24px;color:#999;letter-spacing:.08em;text-transform:uppercase}
+
+/* ============ STORY 2 — LA SOLUCIÓN (on brand) ============ */
+.story-2{background:var(--ink);color:var(--bg)}
+.glow-dark{
+  position:absolute;inset:0;pointer-events:none;
+  background:
+    radial-gradient(circle at 75% 12%,rgba(168,156,247,.3),transparent 45%),
+    radial-gradient(circle at 20% 90%,rgba(168,156,247,.16),transparent 42%);
+}
+.s2-pad{position:relative;z-index:1;height:100%;padding:150px 76px 120px;display:flex;flex-direction:column}
+.s2-eyebrow{
+  font-family:var(--font-body);font-weight:600;font-size:26px;letter-spacing:.16em;text-transform:uppercase;
+  color:rgba(237,237,233,.62);display:flex;align-items:center;gap:14px;
+}
+.s2-eyebrow .dot{width:12px;height:12px;border-radius:50%;background:var(--lilac);display:inline-block}
+.s2-head{
+  font-family:var(--font-display);font-weight:900;text-transform:uppercase;
+  font-size:118px;line-height:.95;letter-spacing:-.03em;margin-top:30px;
+}
+.s2-head em{font-style:normal;color:var(--lilac)}
+.s2-lede{font-family:var(--font-display);font-weight:700;font-size:42px;line-height:1.25;margin-top:34px;max-width:900px}
+.s2-body{font-family:var(--font-body);font-weight:500;font-size:30px;line-height:1.55;margin-top:26px;max-width:900px;color:rgba(237,237,233,.72)}
+
+.s2-pills{display:flex;flex-direction:column;gap:18px;margin-top:56px;align-items:flex-start}
+.s2-pill{
+  display:inline-flex;align-items:center;gap:.5em;
+  font-family:var(--font-body);font-weight:700;font-size:28px;letter-spacing:.04em;text-transform:uppercase;
+  padding:18px 32px;border-radius:999px;
+}
+.s2-pill.solid{background:var(--lilac);color:var(--ink)}
+.s2-pill.outline{background:transparent;border:2.5px solid rgba(237,237,233,.55);color:var(--bg)}
+
+.s2-cta{
+  margin-top:auto;text-align:center;
+}
+.s2-cta .swipe{
+  font-family:var(--font-body);font-weight:700;font-size:28px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--bg);display:flex;align-items:center;justify-content:center;gap:12px;
+}
+.s2-cta .swipe .arrow{animation:bounce 1.6s ease-in-out infinite}
+@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+.s2-wordmark{
+  margin-top:26px;text-align:center;font-family:var(--font-display);font-weight:900;
+  font-size:30px;letter-spacing:.02em;color:rgba(237,237,233,.4);text-transform:uppercase;
+}
+</style>
+</head>
+<body>
+
+<!-- ===================== STORY 1 — EL PROBLEMA ===================== -->
+<section class="story story-1" id="story-1">
+  <div class="s1-pad">
+    <p class="s1-head">Si tus resultados con IA se ven así:</p>
+
+    <div class="slop-grid">
+      <div class="slop-card c1"><span class="badge">🤖 IA</span><div class="num">93.3%</div><div class="txt">no sabía esto</div></div>
+      <div class="slop-card c2"><span class="badge">🔥</span><div class="txt">10 tips que van a romper tu algoritmo</div></div>
+      <div class="slop-card c3"><span class="badge">🚀</span><div class="txt">¡suscríbete ya! contenido viral 2025</div></div>
+      <div class="slop-card c4"><span class="badge">💯</span><div class="txt">copia y pega esto en tu bio</div></div>
+      <div class="slop-card c5"><span class="badge">✨</span><div class="txt">gana seguidores mientras duermes</div></div>
+      <div class="slop-card c6"><div class="txt" style="color:#ffd200">rompiendo internet</div></div>
+    </div>
+
+    <p class="s1-foot">…seguramente ya se ven <b>igual a los de todos los demás</b>.</p>
+    <p class="s1-arrow">desliza →</p>
+  </div>
+</section>
+
+<!-- ===================== STORY 2 — LA SOLUCIÓN ===================== -->
+<section class="story story-2" id="story-2">
+  <div class="glow-dark"></div>
+  <div class="s2-pad">
+    <span class="s2-eyebrow"><span class="dot"></span>🎤 Charla</span>
+    <h1 class="s2-head">IA<br><em>anti-slop</em></h1>
+    <p class="s2-lede">Cómo mantener una marca coherente, visual y verbal, cuando todo lo genera la IA.</p>
+    <p class="s2-body">Conversamos con 3 expertos sobre cómo evitar que tu contenido, tus posts, tus flyers y tu marca suenen igual a todos los demás.</p>
+
+    <div class="s2-pills">
+      <span class="s2-pill solid">Jueves 30 · 5:00 PM</span>
+      <span class="s2-pill outline">CBW Medellín</span>
+      <span class="s2-pill outline">Entrada libre</span>
+    </div>
+
+    <div class="s2-cta">
+      <p class="swipe">Desliza hacia arriba <span class="arrow">↑</span></p>
+      <p class="s2-wordmark">Rosedays™ Brand Lab</p>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>
