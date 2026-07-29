@@ -57,12 +57,16 @@ nav a:hover::after{width:100%}
 .cta-media{max-width:340px;margin:2.6rem auto 0}
 .cta-media .media-frame{aspect-ratio:9/13}
 
-/* ---------- PHOTO BREAK (full-bleed editorial pause between sections) ---------- */
-.photo-break{max-width:1350px;margin:0 auto;padding:0 2.5rem 6rem}
-.photo-break figure{border-radius:24px;overflow:hidden;aspect-ratio:21/9;box-shadow:0 30px 70px rgba(29,28,27,.14)}
-.photo-break.tall figure{aspect-ratio:16/9}
-.photo-break img{display:block;width:100%;height:100%;object-fit:cover;object-position:center 20%}
-.photo-break figcaption{margin-top:1rem;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);font-weight:600}
+/* ---------- BANNER (full-bleed image + overlaid headline, editorial pause between sections) ---------- */
+.banner{max-width:1350px;margin:0 auto;padding:0 2.5rem 6rem}
+.banner figure{position:relative;border-radius:24px;overflow:hidden;aspect-ratio:21/9;box-shadow:0 30px 70px rgba(29,28,27,.14)}
+.banner.tall figure{aspect-ratio:16/9}
+.banner img{display:block;width:100%;height:100%;object-fit:cover;object-position:center 20%}
+.banner .scrim{position:absolute;inset:0;background:linear-gradient(0deg,rgba(15,13,12,.78) 0%,rgba(15,13,12,.25) 42%,transparent 68%)}
+.banner .banner-text{position:absolute;left:2.4rem;right:2.4rem;bottom:2rem;color:#fff}
+.banner .banner-text .eyebrow{color:rgba(255,255,255,.8);margin-bottom:.5rem}
+.banner .banner-text h3{font-family:var(--font-display);font-weight:900;font-size:clamp(1.5rem,3.2vw,2.5rem);letter-spacing:-.02em;line-height:1.06;max-width:680px}
+.banner .banner-text p{margin-top:.6rem;font-size:.92rem;color:rgba(255,255,255,.85);max-width:520px;line-height:1.5}
 
 .bio-split{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center;margin-bottom:1rem}
 .bio-split figure{border-radius:24px;overflow:hidden;aspect-ratio:4/5;box-shadow:0 30px 70px rgba(29,28,27,.16)}
@@ -217,8 +221,9 @@ footer{padding:2rem 1.2rem 1.2rem}
   .sec-note{margin:1.8rem 1.5rem 2.5rem;padding-right:0}
   .agenda-row .desc{display:none}
   .foot-card{padding:2rem 1.5rem 1.2rem}
-  .photo-break{padding:0 1.5rem 3.5rem}
-  .photo-break figure{aspect-ratio:4/5}
+  .banner{padding:0 1.5rem 3.5rem}
+  .banner figure{aspect-ratio:4/5}
+  .banner .banner-text{left:1.4rem;right:1.4rem;bottom:1.4rem}
   .mood-grid{grid-template-columns:1fr 1fr;grid-auto-rows:140px;gap:.7rem}
   .mood-grid .m1{grid-column:1/3;grid-row:1/3}
   .mood-grid .m2{grid-column:1/2;grid-row:3/4}
@@ -275,10 +280,17 @@ footer{padding:2rem 1.2rem 1.2rem}
   </div>
 </section>
 
-<!-- PHOTO BREAK: brand character -->
-<div class="photo-break reveal">
-  <figure><img src="Images/workshop/rosedays_glitter_pigeon_wearing_a_holographic_jacket_riding_a_a5b1349f-b936-4b19-be00-8700d349d7f8_0.png" alt="Dirección de arte con IA: paloma con gafas de sol y vespa pastel"></figure>
-  <figcaption>Tu marca, con carácter — no una plantilla más</figcaption>
+<!-- BANNER: brand character -->
+<div class="banner reveal">
+  <figure>
+    <img src="Images/workshop/rosedays_glitter_pigeon_wearing_a_holographic_jacket_riding_a_a5b1349f-b936-4b19-be00-8700d349d7f8_0.png" alt="Dirección de arte con IA: paloma con gafas de sol y vespa pastel">
+    <div class="scrim"></div>
+    <div class="banner-text">
+      <p class="eyebrow">Dirección de arte con criterio</p>
+      <h3>Tu marca, con carácter</h3>
+      <p>No una plantilla más — un sistema visual que se reconoce a la primera.</p>
+    </div>
+  </figure>
 </div>
 
 <!-- AGENDA -->
@@ -312,9 +324,17 @@ footer{padding:2rem 1.2rem 1.2rem}
   </div>
 </section>
 
-<!-- PHOTO BREAK: sensibility -->
-<div class="photo-break tall reveal">
-  <figure><img src="Images/workshop/rosedays_surreal_fashion_portrait_of_a_gender_neutral_model_wit_064bfb64-e62d-4ab8-b5af-8eeb253d4da4.png" alt="Retrato editorial: la sensibilidad creativa no se automatiza"></figure>
+<!-- BANNER: sensibility -->
+<div class="banner tall reveal">
+  <figure>
+    <img src="Images/workshop/rosedays_surreal_fashion_portrait_of_a_gender_neutral_model_wit_064bfb64-e62d-4ab8-b5af-8eeb253d4da4.png" alt="Retrato editorial: la sensibilidad creativa no se automatiza">
+    <div class="scrim"></div>
+    <div class="banner-text">
+      <p class="eyebrow">Lo que la IA no reemplaza</p>
+      <h3>La sensibilidad no se automatiza</h3>
+      <p>La IA ejecuta. El criterio lo pone tu equipo.</p>
+    </div>
+  </figure>
 </div>
 
 <!-- BREAKER -->
@@ -346,10 +366,17 @@ footer{padding:2rem 1.2rem 1.2rem}
   </div>
 </section>
 
-<!-- PHOTO BREAK: process to abundance -->
-<div class="photo-break reveal">
-  <figure><img src="Images/workshop/rosedays_full_body_surreal_fashion_editorial_of_a_tropical_sa_dc74a861-59b4-4110-802a-7229cf754038_3.png" alt="De la exploración a un resultado con abundancia creativa" style="object-position:center 15%"></figure>
-  <figcaption>Del proceso definido a la abundancia creativa</figcaption>
+<!-- BANNER: process to abundance -->
+<div class="banner reveal">
+  <figure>
+    <img src="Images/workshop/rosedays_full_body_surreal_fashion_editorial_of_a_tropical_sa_dc74a861-59b4-4110-802a-7229cf754038_3.png" alt="De la exploración a un resultado con abundancia creativa" style="object-position:center 15%">
+    <div class="scrim"></div>
+    <div class="banner-text">
+      <p class="eyebrow">El efecto del proceso</p>
+      <h3>Del proceso definido a la abundancia creativa</h3>
+      <p>Un sistema claro no limita la creatividad — la multiplica.</p>
+    </div>
+  </figure>
 </div>
 
 <!-- WHO -->
@@ -377,9 +404,17 @@ footer{padding:2rem 1.2rem 1.2rem}
   </div>
 </div>
 
-<!-- PHOTO BREAK: premium outcome -->
-<div class="photo-break reveal">
-  <figure><img src="Images/workshop/rosedays_moody_fashion_editorial_photograph_woman_in_a_deep_t_1ad80d6d-f57c-436e-a674-ff78bb33d154_2.png" alt="Resultado premium: entregables con dirección de arte" style="object-position:center 30%"></figure>
+<!-- BANNER: premium outcome -->
+<div class="banner reveal">
+  <figure>
+    <img src="Images/workshop/rosedays_moody_fashion_editorial_photograph_woman_in_a_deep_t_1ad80d6d-f57c-436e-a674-ff78bb33d154_2.png" alt="Resultado premium: entregables con dirección de arte" style="object-position:center 30%">
+    <div class="scrim"></div>
+    <div class="banner-text">
+      <p class="eyebrow">El estándar del workshop</p>
+      <h3>Resultados con nivel premium</h3>
+      <p>Entregables que se ven —y se sienten— como alta gama.</p>
+    </div>
+  </figure>
 </div>
 
 <!-- WORKSHOP -->
@@ -402,9 +437,17 @@ footer{padding:2rem 1.2rem 1.2rem}
   </div>
 </section>
 
-<!-- PHOTO BREAK: craft -->
-<div class="photo-break reveal">
-  <figure><img src="Images/workshop/rosedays_surreal_underwater_oracle_emerging_from_coral_struct_ef8e8b88-a96a-412c-84f6-a9f4d55bc55e_0.png" alt="Detalle y artesanía en cada entregable" style="object-position:center 25%"></figure>
+<!-- BANNER: craft -->
+<div class="banner reveal">
+  <figure>
+    <img src="Images/workshop/rosedays_surreal_underwater_oracle_emerging_from_coral_struct_ef8e8b88-a96a-412c-84f6-a9f4d55bc55e_0.png" alt="Detalle y artesanía en cada entregable" style="object-position:center 25%">
+    <div class="scrim"></div>
+    <div class="banner-text">
+      <p class="eyebrow">Coherencia de marca</p>
+      <h3>El detalle importa</h3>
+      <p>Cada pieza, cuidada como una prenda de autor.</p>
+    </div>
+  </figure>
 </div>
 
 <!-- OBJETIVOS -->
@@ -425,9 +468,17 @@ footer{padding:2rem 1.2rem 1.2rem}
   </div>
 </section>
 
-<!-- PHOTO BREAK: whimsical Barcelona callback -->
-<div class="photo-break reveal">
-  <figure><img src="Images/workshop/rosedays_soft_fluffy_pink_cotton_candy_cloud_covered_in_fur_f_209a18f8-3c55-4742-83f6-c018a612a778_3.png" alt="Barcelona, con la misma sensibilidad de marca" style="object-position:center 30%"></figure>
+<!-- BANNER: whimsical Barcelona callback -->
+<div class="banner reveal">
+  <figure>
+    <img src="Images/workshop/rosedays_soft_fluffy_pink_cotton_candy_cloud_covered_in_fur_f_209a18f8-3c55-4742-83f6-c018a612a778_3.png" alt="Barcelona, con la misma sensibilidad de marca" style="object-position:center 30%">
+    <div class="scrim"></div>
+    <div class="banner-text">
+      <p class="eyebrow">Hecho en Barcelona</p>
+      <h3>La misma sensibilidad, aplicada a tu equipo</h3>
+      <p>Antes de hablar de inversión — esto es lo que hay detrás.</p>
+    </div>
+  </figure>
 </div>
 
 <!-- INVERSION -->
