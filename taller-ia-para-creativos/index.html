@@ -206,6 +206,45 @@ footer{padding:2rem 1.2rem 1.2rem}
 .wordmark sup{font-size:.22em;vertical-align:super;letter-spacing:0}
 .wordmark .sub{display:block;font-size:clamp(1rem,3.2vw,3.4rem);font-weight:700;letter-spacing:.02em;color:var(--lilac);margin-top:.15em}
 
+/* ---------- CTA BUTTONS ---------- */
+.btn{display:inline-flex;align-items:center;gap:.6rem;background:var(--ink);color:var(--bg);font-family:var(--font-body);font-weight:700;font-size:.85rem;letter-spacing:.02em;padding:.95rem 1.8rem;border-radius:999px;text-decoration:none;transition:transform .3s cubic-bezier(.6,0,.2,1),background .3s;border:1.5px solid var(--ink)}
+.btn:hover{background:var(--lilac);border-color:var(--lilac);color:var(--ink);transform:translateY(-2px)}
+.btn.ghost{background:transparent;color:var(--ink)}
+.btn.ghost:hover{background:var(--ink);color:var(--bg)}
+.hero-ctas{display:flex;gap:1rem;flex-wrap:wrap;margin-top:2.2rem}
+.trust-note{margin-top:1.4rem;font-size:.78rem;color:var(--ink-soft);display:flex;align-items:center;gap:.55rem}
+.dot-live{width:8px;height:8px;border-radius:50%;background:#3ecf5e;display:inline-block;animation:pulseDot 2s infinite;flex-shrink:0}
+@keyframes pulseDot{0%,100%{opacity:1}50%{opacity:.35}}
+
+/* ---------- MID-PAGE CTA STRIP ---------- */
+.cta-strip{max-width:1350px;margin:0 auto;padding:0 2.5rem 6rem;text-align:center}
+.cta-strip-inner{background:var(--ink);color:var(--bg);border-radius:28px;padding:3.4rem 2.5rem}
+.cta-strip h3{font-family:var(--font-display);font-weight:900;font-size:clamp(1.5rem,3.4vw,2.4rem);letter-spacing:-.02em;margin-bottom:.7rem}
+.cta-strip p{color:rgba(237,237,233,.7);max-width:520px;margin:0 auto 1.7rem;font-size:.92rem;line-height:1.55}
+.cta-strip .btn{background:var(--acid);color:var(--ink);border-color:var(--acid)}
+.cta-strip .btn:hover{background:#fff;border-color:#fff}
+
+/* ---------- FAQ ---------- */
+.faq{max-width:900px;margin:0 auto;padding:0 2.5rem 6rem}
+.faq-item{border-bottom:1px solid var(--line)}
+.faq-item summary{padding:1.4rem 0;font-family:var(--font-display);font-weight:700;font-size:1.02rem;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:1rem}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-item summary::after{content:'+';font-size:1.4rem;color:var(--lilac);transition:transform .3s;flex-shrink:0}
+.faq-item[open] summary::after{transform:rotate(45deg)}
+.faq-item p{padding:0 0 1.4rem;color:var(--ink-soft);font-size:.92rem;line-height:1.6;max-width:720px}
+
+/* ---------- SCARCITY + GUARANTEE ---------- */
+.scarcity{display:inline-flex;align-items:center;gap:.5rem;font-size:.76rem;color:var(--lilac);font-weight:700;margin-bottom:1.1rem;letter-spacing:.02em}
+.scarcity .dot-live{background:var(--lilac)}
+.reassure{display:flex;gap:1rem;align-items:flex-start;margin-top:1.6rem;padding-top:1.6rem;border-top:1px solid rgba(237,237,233,.15);text-align:left}
+.reassure b{display:block;font-size:.82rem;margin-bottom:.25rem}
+.reassure p{font-size:.8rem;opacity:.65;line-height:1.5}
+
+/* ---------- FLOATING CTA ---------- */
+.floating-cta{position:fixed;right:1.6rem;bottom:1.6rem;z-index:90;opacity:0;transform:translateY(20px) scale(.92);pointer-events:none;transition:opacity .4s,transform .4s}
+.floating-cta.show{opacity:1;transform:none;pointer-events:auto}
+.floating-cta .btn{box-shadow:0 14px 34px rgba(29,28,27,.28)}
+
 /* ---------- REVEAL (shared) ---------- */
 .reveal{opacity:0;transform:translateY(40px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.7,.3,1)}
 .reveal.in{opacity:1;transform:none}
@@ -230,6 +269,12 @@ footer{padding:2rem 1.2rem 1.2rem}
   .mood-grid .m3{grid-column:2/3;grid-row:3/5}
   .mood-grid .m4{grid-column:1/2;grid-row:4/5}
   .mood-grid .m5{grid-column:1/3;grid-row:5/6}
+  .cta-strip{padding:0 1.5rem 3.5rem}
+  .cta-strip-inner{padding:2.4rem 1.6rem}
+  .faq{padding:0 1.5rem 3.5rem}
+  .floating-cta{right:1rem;bottom:1rem}
+  .floating-cta .btn{padding:.8rem 1.3rem;font-size:.78rem}
+  .reassure{flex-direction:column}
 }
 </style>
 </head>
@@ -255,6 +300,11 @@ footer{padding:2rem 1.2rem 1.2rem}
       <b>Propuesta diseñada por Laura Rosa Diaz</b>
       <span>Brand &amp; Creative Consultant</span>
     </div>
+    <div class="hero-ctas">
+      <a class="btn" href="#contact">Reserva 20 min →</a>
+      <a class="btn ghost" href="#inversion">Ver inversión</a>
+    </div>
+    <p class="trust-note"><span class="dot-live"></span>Próximos grupos: agosto 2026 — cupos limitados por cohorte</p>
   </div>
   <div class="media-frame">
     <video autoplay muted loop playsinline poster="../Images/workshop/flamingo-poster.jpg">
@@ -279,6 +329,13 @@ footer{padding:2rem 1.2rem 1.2rem}
     <p>Un equipo alineado que <b>reduce hasta un 50% el tiempo de exploración</b> y documenta procesos que no dependen de una sola persona.</p>
   </div>
 </section>
+
+<div class="clients-marquee">
+  <div class="track">
+    <span class="logo">Laboratorios Laproff</span><span class="logo">DOIY</span><span class="logo">Eat My Socks</span><span class="logo">dentsu</span><span class="logo">Art Skool</span>
+    <span class="logo">Laboratorios Laproff</span><span class="logo">DOIY</span><span class="logo">Eat My Socks</span><span class="logo">dentsu</span><span class="logo">Art Skool</span>
+  </div>
+</div>
 
 <!-- BANNER: brand character -->
 <div class="banner reveal">
@@ -323,6 +380,15 @@ footer{padding:2rem 1.2rem 1.2rem}
     <div class="problem-item reveal"><span class="n">04</span><div><h3>Cajas negras</h3><p>Procesos que no se pueden replicar ni escalar.</p></div></div>
   </div>
 </section>
+
+<!-- CTA STRIP -->
+<div class="cta-strip reveal">
+  <div class="cta-strip-inner">
+    <h3>¿Te suena familiar?</h3>
+    <p>Esto es exactamente lo que resolvemos en las primeras dos horas del workshop.</p>
+    <a class="btn" href="#contact">Reserva 20 min →</a>
+  </div>
+</div>
 
 <!-- BANNER: sensibility -->
 <div class="banner tall reveal">
@@ -397,12 +463,6 @@ footer{padding:2rem 1.2rem 1.2rem}
     <figure class="m5"><img src="../Images/workshop/rosedays_full-body_fashion_editorial_model_centered_in_symmet_63e01458-6b43-4c72-a413-e2919e5b07a6_1.png" alt="Dirección creativa aplicada"></figure>
   </div>
 </section>
-<div class="clients-marquee">
-  <div class="track">
-    <span class="logo">Laboratorios Laproff</span><span class="logo">DOIY</span><span class="logo">Eat My Socks</span><span class="logo">dentsu</span><span class="logo">Art Skool</span>
-    <span class="logo">Laboratorios Laproff</span><span class="logo">DOIY</span><span class="logo">Eat My Socks</span><span class="logo">dentsu</span><span class="logo">Art Skool</span>
-  </div>
-</div>
 
 <!-- BANNER: premium outcome -->
 <div class="banner reveal">
@@ -468,6 +528,15 @@ footer{padding:2rem 1.2rem 1.2rem}
   </div>
 </section>
 
+<!-- CTA STRIP -->
+<div class="cta-strip reveal">
+  <div class="cta-strip-inner">
+    <h3>Así trabajamos con tu equipo</h3>
+    <p>Sales con un sistema aplicable desde el primer día — no con una teoría más.</p>
+    <a class="btn" href="#contact">Agenda tu workshop →</a>
+  </div>
+</div>
+
 <!-- BANNER: whimsical Barcelona callback -->
 <div class="banner reveal">
   <figure>
@@ -482,7 +551,7 @@ footer{padding:2rem 1.2rem 1.2rem}
 </div>
 
 <!-- INVERSION -->
-<div class="sec-head"><div class="track">
+<div class="sec-head" id="inversion"><div class="track">
   <h2>inversión<em>*</em></h2><h2>inversión<em>*</em></h2><h2>inversión<em>*</em></h2><h2>inversión<em>*</em></h2>
 </div></div>
 <p class="sec-note reveal"><b>*Una inversión en eficiencia</b> para equipos creativos.</p>
@@ -495,9 +564,16 @@ footer{padding:2rem 1.2rem 1.2rem}
       <li><b>→</b> Soporte post-workshop para implementación.</li>
     </ul>
     <div class="price-card reveal">
+      <p class="scarcity"><span class="dot-live"></span>Próximos grupos: agosto 2026</p>
       <p class="lbl">Inversión total</p>
       <p class="amount">$3.900.000 <span class="curr">COP</span></p>
       <p class="note">Grupo completo · sin costes ocultos</p>
+      <div class="reassure">
+        <div>
+          <b>Compromiso de aplicabilidad</b>
+          <p>Si el equipo no sale con un sistema que puede usar desde el día 1, ajustamos una sesión de seguimiento sin costo adicional.</p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -519,10 +595,27 @@ footer{padding:2rem 1.2rem 1.2rem}
   </div>
 </section>
 
+<!-- FAQ -->
+<div class="sec-head"><div class="track">
+  <h2>preguntas<em>*</em></h2><h2>preguntas<em>*</em></h2><h2>preguntas<em>*</em></h2><h2>preguntas<em>*</em></h2>
+</div></div>
+<p class="sec-note reveal"><b>*Antes de escribirnos,</b> esto es lo que la mayoría pregunta.</p>
+<div class="faq">
+  <details class="faq-item reveal"><summary>¿Necesitamos experiencia previa con IA?</summary><p>No. El workshop no requiere conocimientos previos — partimos de cero y construimos el criterio juntos.</p></details>
+  <details class="faq-item reveal"><summary>¿Sirve si nuestro equipo no es 100% creativo?</summary><p>Sí. Aplica a cualquier equipo que produzca contenido, campañas o material visual — marketing, producto, e-commerce.</p></details>
+  <details class="faq-item reveal"><summary>¿Qué pasa si ya usamos herramientas de IA?</summary><p>Mejor. Partimos de lo que ya usan y les damos un sistema compartido, en vez de empezar desde cero.</p></details>
+  <details class="faq-item reveal"><summary>¿Es una charla teórica?</summary><p>No. Tu equipo trabaja un proyecto real de la empresa durante el workshop, no un caso genérico.</p></details>
+  <details class="faq-item reveal"><summary>¿Cuántas personas pueden asistir?</summary><p>Funciona mejor con equipos de 5 a 15 personas, pero se adapta al tamaño de tu organización.</p></details>
+  <details class="faq-item reveal"><summary>¿Qué pasa después del workshop?</summary><p>Incluye soporte post-workshop para resolver dudas mientras el equipo implementa lo aprendido.</p></details>
+</div>
+
 <!-- CTA -->
 <section class="cta reveal" id="contact">
   <p class="cta-small">reserva 20 min y adaptamos el workshop a tu equipo</p>
   <h2>let's talk <a href="mailto:laura.diazca@gmail.com?subject=Workshop%20IA%20para%20Equipos%20Creativos">laura.diazca@gmail.com</a></h2>
+  <div style="margin-top:2rem">
+    <a class="btn" href="mailto:laura.diazca@gmail.com?subject=Workshop%20IA%20para%20Equipos%20Creativos">Reserva 20 min →</a>
+  </div>
   <div class="contact-info">
     <p>Laura Rosa Diaz Cañas · (+34) 604 187 994</p>
     <p>Portfolio: <a href="https://rosedays.myportfolio.com" target="_blank" rel="noopener">rosedays.myportfolio.com</a> · LinkedIn: <a href="#" target="_blank" rel="noopener">Rosedays</a></p>
@@ -549,11 +642,23 @@ footer{padding:2rem 1.2rem 1.2rem}
   </div>
 </footer>
 
+<div class="floating-cta" id="floatingCta">
+  <a class="btn" href="#contact">Reserva 20 min →</a>
+</div>
+
 <script>
 const io=new IntersectionObserver(entries=>{
   entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});
 },{threshold:.1});
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+const floatingCta=document.getElementById('floatingCta');
+const heroEl=document.querySelector('.case-hero');
+const finalCta=document.getElementById('contact');
+let heroVisible=true, ctaVisible=false;
+function updateFloat(){ floatingCta.classList.toggle('show', !heroVisible && !ctaVisible); }
+new IntersectionObserver(([e])=>{heroVisible=e.isIntersecting;updateFloat();},{threshold:0}).observe(heroEl);
+new IntersectionObserver(([e])=>{ctaVisible=e.isIntersecting;updateFloat();},{threshold:.15}).observe(finalCta);
 </script>
 
 </body>
