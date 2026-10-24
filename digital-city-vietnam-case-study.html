@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Digital City Vietnam — Product Design — ROSEDAYS</title>
+<meta name="description" content="Product design case study: a B2C iOS travel guide for Quang Ninh, Vietnam.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,700,900,1&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,400;12..96,500;12..96,600;12..96,700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#EDEDE9;
+  --ink:#1D1C1B;
+  --lilac:#A89CF7;
+  --acid:#E6FF00;
+  --ink-soft:rgba(29,28,27,.55);
+  --line:rgba(29,28,27,.14);
+  --card:#F6F6F3;
+  --font-display:'Satoshi',sans-serif;
+  --font-body:'Bricolage Grotesque',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--font-body);overflow-x:hidden}
+::selection{background:var(--acid);color:var(--ink)}
+
+/* NAV */
+nav{position:fixed;inset:0 0 auto 0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:1.4rem 2.5rem;mix-blend-mode:difference;color:#fff}
+nav a{color:#fff;text-decoration:none;font-family:var(--font-body);font-weight:500;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;position:relative}
+nav a::after{content:'';position:absolute;left:0;bottom:-4px;width:0;height:1px;background:#fff;transition:width .35s cubic-bezier(.6,0,.2,1)}
+nav a:hover::after{width:100%}
+.nav-logo{font-family:var(--font-display);font-weight:900;font-size:1.05rem;letter-spacing:-.01em}
+.nav-links{display:flex;gap:2.2rem}
+
+
+/* CTA + FOOTER reused */
+.cta{padding:9rem 2.5rem 4rem;text-align:center}
+.cta .cta-small{font-family:var(--font-body);font-weight:500;font-size:.75rem;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-soft)}
+.cta h2{font-family:var(--font-display);font-weight:900;font-size:clamp(2.6rem,7vw,5.8rem);letter-spacing:-.03em;margin:.8rem 0 0}
+.cta h2 a{color:inherit;text-decoration:none;position:relative;display:inline-block}
+.cta h2 a::after{content:'';position:absolute;left:0;bottom:.05em;width:100%;height:.08em;background:var(--lilac);transform:scaleX(0);transform-origin:left;transition:transform .5s cubic-bezier(.6,0,.2,1)}
+.cta h2 a:hover::after{transform:scaleX(1)}
+
+footer{padding:2rem 1.2rem 1.2rem}
+.foot-card{background:var(--card);border-radius:28px;padding:3rem 3rem 1.6rem;max-width:1600px;margin:0 auto}
+.foot-legal{display:flex;flex-wrap:wrap;align-items:center;gap:1.6rem;font-size:.78rem;color:var(--ink-soft)}
+.foot-legal a{color:var(--ink-soft);text-decoration:none}
+.wordmark{font-family:var(--font-display);font-weight:900;font-size:clamp(3.2rem,12.5vw,13.5rem);letter-spacing:-.045em;line-height:.85;text-transform:uppercase;white-space:nowrap;margin-bottom:2.5rem}
+.wordmark sup{font-size:.22em;vertical-align:super;letter-spacing:0}
+.wordmark .sub{display:block;font-size:clamp(1rem,3.2vw,3.4rem);font-weight:700;letter-spacing:.02em;color:var(--lilac);margin-top:.15em}
+
+.reveal{opacity:0;transform:translateY(40px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.7,.3,1)}
+.reveal.in{opacity:1;transform:none}
+
+@media(max-width:900px){
+  nav{padding:1.2rem 1.5rem}
+  .case-hero{padding:6rem 1.5rem 3rem}
+  .case-meta{grid-template-columns:1fr;padding:0 1.5rem 4rem;gap:2rem}
+  .gallery{padding:0 1.5rem 2rem;gap:1.5rem}
+  .gallery .row,.gallery .row.thirds{grid-template-columns:1fr}
+  .foot-card{padding:2rem 1.5rem 1.2rem}
+}
+.reveal{opacity:0;transform:translateY(40px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.7,.3,1)}
+.reveal.in{opacity:1;transform:none}
+
+
+:root{--soft:#E4E1F9;--deep:#5d4dcb}
+.wrap{max-width:1280px;margin:0 auto;padding:0 2.5rem}
+
+/* HERO */
+.c-hero{padding:8.5rem 0 3rem;background:radial-gradient(circle at 85% 0%,rgba(168,156,247,.28),transparent 42%),radial-gradient(circle at 0% 100%,rgba(230,255,0,.12),transparent 38%)}
+.c-back{display:inline-flex;gap:.5rem;text-decoration:none;color:var(--ink-soft);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;font-weight:500;margin-bottom:2.6rem}
+.c-back:hover{color:var(--ink)}
+.c-eyebrow{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft);font-weight:600;margin-bottom:1.1rem;display:flex;gap:.8rem;align-items:center;flex-wrap:wrap}
+.c-eyebrow .pill{background:var(--ink);color:var(--acid);border-radius:999px;padding:.32rem .7rem;letter-spacing:.1em}
+.c-hero h1{font-family:var(--font-display);font-weight:900;font-size:clamp(2.7rem,7.4vw,6.6rem);letter-spacing:-.035em;line-height:.95;max-width:12ch}
+.c-hero h1 span{color:var(--lilac)}
+.c-lede{display:grid;grid-template-columns:1.2fr 1fr;gap:3rem;margin-top:2.2rem;align-items:end}
+.c-lede p{font-size:1.18rem;line-height:1.6;color:var(--ink-soft);max-width:560px}
+.c-lede p b{color:var(--ink);font-weight:600}
+.c-hero-img{margin-top:3.5rem;border-radius:28px;overflow:hidden;box-shadow:0 40px 80px -40px rgba(40,30,110,.45)}
+.c-hero-img img{display:block;width:100%;height:auto}
+
+/* FACTS */
+.facts{display:grid;grid-template-columns:repeat(5,1fr);gap:0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin:3.5rem 0 0}
+.fact{padding:1.4rem 1.4rem 1.5rem 0}
+.fact+.fact{padding-left:1.4rem;border-left:1px solid var(--line)}
+.fact .k{font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:var(--lilac);font-weight:700;margin-bottom:.55rem}
+.fact .v{font-size:.95rem;line-height:1.45;font-weight:500}
+
+/* SECTIONS */
+.sec{padding:7rem 0 0}
+.sec-grid{display:grid;grid-template-columns:260px 1fr;gap:3rem}
+.sec-label{font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;font-weight:700;color:var(--ink-soft);position:sticky;top:6rem;align-self:start}
+.sec-label b{display:block;font-family:var(--font-display);font-weight:900;font-size:3.2rem;letter-spacing:-.04em;color:var(--ink);line-height:1;margin-bottom:.4rem}
+.sec h2{font-family:var(--font-display);font-weight:700;font-size:clamp(1.8rem,3.4vw,2.9rem);letter-spacing:-.025em;line-height:1.08;max-width:22ch;margin-bottom:1.6rem}
+.sec h2 span{color:var(--lilac)}
+.prose p{font-size:1.06rem;line-height:1.72;color:var(--ink-soft);max-width:680px;margin-bottom:1.1rem}
+.prose p b{color:var(--ink);font-weight:600}
+.cols2{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;margin-top:2.2rem}
+.card{background:var(--card);border-radius:20px;padding:1.8rem}
+.card .k{font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:var(--lilac);font-weight:700;margin-bottom:.8rem}
+.card p,.card li{font-size:.98rem;line-height:1.6;color:var(--ink-soft)}
+.card ul{list-style:none;display:flex;flex-direction:column;gap:.55rem}
+.card li{padding-left:1.3rem;position:relative}
+.card li::before{content:'';position:absolute;left:0;top:.62em;width:.55rem;height:.55rem;border-radius:50%;background:var(--lilac)}
+.card b{color:var(--ink);font-weight:600}
+
+/* FLOW */
+.flow{margin-top:2.4rem;background:var(--ink);border-radius:24px;padding:2.4rem;color:#EDEDE9}
+.flow .k{font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:var(--lilac);font-weight:700;margin-bottom:1.4rem}
+.flow-row{display:flex;flex-wrap:wrap;align-items:center;gap:.6rem}
+.node{border:1px solid rgba(237,237,233,.28);border-radius:999px;padding:.6rem 1rem;font-size:.82rem;font-weight:500;white-space:nowrap}
+.node.hl{background:var(--lilac);border-color:var(--lilac);color:var(--ink)}
+.node.acid{background:var(--acid);border-color:var(--acid);color:var(--ink)}
+.arrow{color:var(--acid);font-size:1rem}
+.branch{display:flex;flex-wrap:wrap;gap:.45rem;padding:.55rem;border:1px dashed rgba(237,237,233,.3);border-radius:18px}
+.branch .node{padding:.45rem .8rem;font-size:.76rem}
+
+/* DECISIONS */
+.decisions{display:flex;flex-direction:column;gap:2rem;margin-top:2.6rem}
+.dec{display:grid;grid-template-columns:1fr 1.05fr;gap:0;background:var(--card);border-radius:28px;overflow:hidden;min-height:560px}
+.dec:nth-child(even){grid-template-columns:1.05fr 1fr}
+.dec:nth-child(even) .dec-vis{order:2}
+.dec-vis{background:linear-gradient(160deg,var(--soft),#c9c1f8);display:flex;align-items:flex-end;justify-content:center;gap:1.4rem;padding:3rem 2rem 0;position:relative;overflow:hidden}
+.dec-vis.dark{background:linear-gradient(160deg,#6e60d2,#2d285a)}
+.dec-vis img{width:min(46%,250px);height:auto;display:block;filter:drop-shadow(0 30px 40px rgba(30,20,80,.35));margin-bottom:-18%}
+.dec-vis.single img{width:min(62%,300px)}
+.dec-txt{padding:3rem 3rem 3rem}
+.dec-num{font-family:var(--font-display);font-weight:900;color:var(--lilac);font-size:.95rem;letter-spacing:.04em;margin-bottom:1.2rem}
+.dec-txt h3{font-family:var(--font-display);font-weight:700;font-size:clamp(1.5rem,2.4vw,2.1rem);letter-spacing:-.02em;line-height:1.1;margin-bottom:1rem}
+.dec-txt p{font-size:1rem;line-height:1.68;color:var(--ink-soft);margin-bottom:1.4rem}
+.dec-txt p b{color:var(--ink);font-weight:600}
+.notes{list-style:none;border-top:1px solid var(--line);padding-top:1.2rem;display:flex;flex-direction:column;gap:.85rem;counter-reset:n}
+.notes li{display:grid;grid-template-columns:1.8rem 1fr;gap:.6rem;font-size:.9rem;line-height:1.5;color:var(--ink-soft)}
+.notes li::before{counter-increment:n;content:counter(n);width:1.5rem;height:1.5rem;border-radius:50%;background:var(--ink);color:var(--acid);font-size:.7rem;font-weight:700;display:grid;place-items:center}
+.notes b{color:var(--ink);font-weight:600}
+
+/* GALLERY */
+.shots{display:flex;flex-direction:column;gap:2rem;margin-top:2.6rem}
+.shots figure img{display:block;width:100%;height:auto;border-radius:24px}
+.shots figcaption{display:flex;justify-content:space-between;gap:1rem;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);margin-top:.9rem}
+.shots figcaption b{color:var(--ink);font-weight:600}
+
+/* SYSTEM */
+.tokens{display:flex;flex-wrap:wrap;gap:.8rem;margin:2rem 0 2.2rem}
+.tok{display:flex;align-items:center;gap:.6rem;background:var(--card);border-radius:999px;padding:.45rem .9rem .45rem .45rem;font-size:.8rem;font-weight:500}
+.tok i{width:1.6rem;height:1.6rem;border-radius:50%;display:block;border:1px solid var(--line)}
+.sys-img{border-radius:24px;overflow:hidden;border:1px solid var(--line);background:#fff}
+.sys-img img{display:block;width:100%;height:auto}
+
+/* METRICS (AI) */
+.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:1.2rem;margin-top:2.4rem}
+.metric{background:var(--ink);color:#EDEDE9;border-radius:22px;padding:1.8rem 1.5rem 1.6rem;display:flex;flex-direction:column;justify-content:space-between;min-height:210px}
+.metric .num{font-family:var(--font-display);font-weight:900;font-size:clamp(2.1rem,3.6vw,3.1rem);letter-spacing:-.035em;line-height:1}
+.metric .num span{color:var(--acid)}
+.metric .lbl{font-size:.88rem;line-height:1.45;color:rgba(237,237,233,.72);margin-top:1.4rem}
+.metric .lbl b{color:#fff;font-weight:600}
+.steps{display:grid;grid-template-columns:repeat(5,1fr);gap:.9rem;margin-top:1.6rem}
+.step{border:1px solid rgba(237,237,233,.22);border-radius:18px;padding:1.3rem 1.1rem}
+.step .n{font-family:var(--font-display);font-weight:900;color:var(--acid);font-size:.85rem;margin-bottom:.8rem}
+.step b{display:block;font-weight:600;margin-bottom:.45rem;color:#fff}
+.step p{font-size:.84rem;line-height:1.5;color:rgba(237,237,233,.7)}
+.tools{display:flex;flex-wrap:wrap;gap:.45rem;margin-top:1.6rem}
+.tools span{font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;border:1px solid rgba(237,237,233,.3);border-radius:999px;padding:.38rem .8rem;color:rgba(237,237,233,.85)}
+.tool-cards{display:grid;grid-template-columns:1fr 1fr;gap:1.6rem;margin-top:2.4rem}
+.tool-card{background:var(--card);border-radius:24px;padding:2.2rem;display:flex;flex-direction:column;gap:1rem}
+.tool-card .tag{align-self:flex-start;font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700;background:var(--soft);color:var(--deep);border-radius:999px;padding:.35rem .7rem}
+.tool-card h3{font-family:var(--font-display);font-weight:700;font-size:1.7rem;letter-spacing:-.02em}
+.tool-card p{font-size:.98rem;line-height:1.62;color:var(--ink-soft)}
+.tool-card p b{color:var(--ink);font-weight:600}
+.tool-card .io{display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;margin-top:auto;padding-top:1rem;border-top:1px solid var(--line)}
+.tool-card .io span{font-size:.75rem;font-weight:600;background:#fff;border:1px solid var(--line);border-radius:10px;padding:.4rem .65rem}
+.tool-card .io em{font-style:normal;color:var(--lilac);font-weight:700}
+.fine{font-size:.82rem;line-height:1.65;color:var(--ink-soft);max-width:880px;margin-top:2rem}
+.fine b{color:var(--ink);font-weight:600}
+
+/* CREDITS + NEXT */
+.credits{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;border-top:1px solid var(--line);padding-top:2rem;margin-top:2rem}
+.credits .k{font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:var(--lilac);font-weight:700;margin-bottom:.6rem}
+.credits p{font-size:.95rem;line-height:1.55}
+.next{margin-top:7rem;display:block;text-decoration:none;color:var(--ink);background:var(--ink);border-radius:28px;overflow:hidden;position:relative}
+.next-in{display:grid;grid-template-columns:1fr 1fr;align-items:center}
+.next-txt{padding:3rem;color:#EDEDE9}
+.next-txt .k{font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;color:var(--acid);font-weight:700;margin-bottom:1rem}
+.next-txt h3{font-family:var(--font-display);font-weight:900;font-size:clamp(2rem,4.4vw,3.6rem);letter-spacing:-.03em;line-height:1}
+.next-txt h3 span{color:var(--lilac)}
+.next-txt .go{display:inline-block;margin-top:1.6rem;background:var(--acid);color:var(--ink);border-radius:999px;padding:.6rem 1.1rem;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;font-weight:600;transition:transform .3s}
+.next:hover .go{transform:translateX(6px)}
+.next img{display:block;width:100%;height:100%;object-fit:cover;aspect-ratio:4/3}
+
+@media(max-width:1000px){
+  .wrap{padding:0 1.5rem}
+  nav{padding:1.2rem 1.5rem}
+  .c-lede{grid-template-columns:1fr;gap:1rem}
+  .facts{grid-template-columns:1fr 1fr}
+  .fact,.fact+.fact{padding:1.1rem 1rem 1.1rem 0;border-left:none;border-bottom:1px solid var(--line)}
+  .sec{padding-top:4.5rem}
+  .sec-grid{grid-template-columns:1fr;gap:1.2rem}
+  .sec-label{position:static}
+  .sec-label b{font-size:2.2rem}
+  .cols2,.tool-cards,.credits,.next-in{grid-template-columns:1fr}
+  .dec,.dec:nth-child(even){grid-template-columns:1fr;min-height:0}
+  .dec:nth-child(even) .dec-vis{order:0}
+  .dec-vis{min-height:380px}
+  .dec-txt{padding:2rem 1.5rem}
+  .metrics{grid-template-columns:1fr 1fr}
+  .steps{grid-template-columns:1fr}
+  .flow{padding:1.6rem}
+  .next-txt{padding:2rem 1.5rem}
+  .foot-card{padding:2rem 1.5rem 1.2rem}
+}
+@media(max-width:560px){.metrics{grid-template-columns:1fr}.facts{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="portfolio_1.html" class="nav-logo">RD*</a>
+  <div class="nav-links">
+    <a href="portfolio_1.html#work">work</a>
+    <a href="portfolio_1.html#services">about</a>
+    <a href="portfolio_1.html#contact">lab</a>
+  </div>
+</nav>
+
+<main>
+<header class="c-hero">
+  <div class="wrap">
+    <a class="c-back" href="portfolio_1.html#work">← back to work</a>
+    <p class="c-eyebrow reveal"><span class="pill">Case 01</span>Product Design · MOCA Platform</p>
+    <h1 class="reveal">A digital travel guide for <span>Quang Ninh*</span></h1>
+    <div class="c-lede reveal"><p>A B2C iOS app for visitors to Vietnam's Ha Long Bay region. Where to <b>stay, eat, drink, shop</b> and what to see, in one place, designed screen by screen from onboarding to profile.</p></div>
+    <div class="c-hero-img reveal"><img src="Images/vietnam/hero.jpg" alt="Three iPhone screens of the Digital City Vietnam travel app"></div>
+    <div class="facts reveal"><div class="fact"><p class="k">Client</p><p class="v">MOCA Platform</p></div><div class="fact"><p class="k">Market</p><p class="v">Quang Ninh, Vietnam</p></div><div class="fact"><p class="k">My role</p><p class="v">Lead Designer, UI/UX</p></div><div class="fact"><p class="k">Platform</p><p class="v">iOS app, B2C</p></div><div class="fact"><p class="k">Deliverables</p><p class="v">Flows, hi-fi prototypes, styleguide, components</p></div></div>
+  </div>
+</header>
+<section class="sec">
+  <div class="wrap sec-grid">
+    <p class="sec-label"><b>01</b>Context</p>
+    <div class="reveal"><h2>One app for everything a visitor needs <span>on the ground.</span></h2>
+<div class="prose"><p>Quang Ninh is home to Ha Long Bay, one of Vietnam's most visited destinations. The brief was a <b>digital travel guide</b> that brings stays, food, drinks, shopping, attractions and tours together for international travellers, in English.</p>
+<p>I owned the UI and interaction design at MOCA Platform: user flows, low and high-fidelity prototypes and the visual system, working with product and engineering in sprint planning.</p></div>
+<div class="cols2">
+  <div class="card"><p class="k">Design goals</p><ul><li><b>Orient fast:</b> a home that answers "what do I need now?"</li><li><b>Decide with confidence:</b> ratings, duration, pick-up and reviews up front</li><li><b>Earn permissions:</b> ask for location and notifications only after showing value</li></ul></div>
+  <div class="card"><p class="k">Scope</p><ul><li><b>13 flows</b> designed in Figma, from onboarding to profile</li><li>Search, filters, calendar and reviews for every category</li><li>A shared <b>styleguide and component library</b> behind every screen</li></ul></div>
+</div></div>
+  </div>
+</section>
+<section class="sec">
+  <div class="wrap sec-grid">
+    <p class="sec-label"><b>02</b>Information architecture</p>
+    <div class="reveal"><h2>From first launch to a booked tour, <span>in a few taps.</span></h2>
+<div class="prose"><p>The architecture follows the visitor's real questions. The home is organised by need, and every category shares the same pattern: list, filters, detail, map and reviews. Learn it once, use it everywhere.</p></div>
+<div class="flow"><p class="k">Core user flow</p><div class="flow-row">
+<span class="node">Onboarding</span><span class="arrow">→</span><span class="node">Location &amp; notifications</span><span class="arrow">→</span><span class="node">Sign in</span><span class="arrow">→</span><span class="node hl">Home</span><span class="arrow">→</span>
+<span class="branch"><span class="node">Stay</span><span class="node">Eat</span><span class="node">Drink</span><span class="node">Shopping</span><span class="node">Attractions</span><span class="node acid">Tours</span></span><span class="arrow">→</span>
+<span class="node">List + filters</span><span class="arrow">→</span><span class="node">Detail</span><span class="arrow">→</span><span class="node">Route map</span><span class="arrow">→</span><span class="node hl">Reviews · Buy</span>
+</div></div></div>
+  </div>
+</section>
+<section class="sec"><div class="wrap reveal"><div class="sec-grid"><p class="sec-label"><b>03</b>Key decisions</p><div><h2>Three decisions that <span>shaped the product.</span></h2></div></div><div class="decisions"><article class="dec reveal">
+  <div class="dec-vis dark"><img src="Images/phones/vn_food.webp" alt="Onboarding: explore the best restaurants" loading="lazy"><img src="Images/phones/vn_loc.webp" alt="Location permission explained in context" loading="lazy"></div>
+  <div class="dec-txt">
+    <p class="dec-num">Decision 01</p>
+    <h3>Show value before asking for anything</h3>
+    <p>The first screens sell the experience (hotels, events, restaurants) before any request. Then each permission <b>explains what the user gets in return</b>, with an equal-weight "Later" option.</p>
+    <ol class="notes"><li><span>Three value slides with full-bleed local photography</span></li><li><span>Location request framed as "nearby hotels, restaurants and tours"</span></li><li><span>Sign-in comes last, with email, Facebook or Google</span></li></ol>
+  </div>
+</article><article class="dec reveal">
+  <div class="dec-vis"><img src="Images/phones/vn_home.webp" alt="Home screen organised by need" loading="lazy"><img src="Images/phones/vn_weather.webp" alt="Seven-day weather forecast" loading="lazy"></div>
+  <div class="dec-txt">
+    <p class="dec-num">Decision 02</p>
+    <h3>A home organised by need, not by content type</h3>
+    <p>Six large entry points (Stay, Eat, Drink, Shopping, Attractions, Tours) sit over a hero of the bay, with the <b>region switcher and live weather</b> always at the top. Recommendations follow below.</p>
+    <ol class="notes"><li><span>Region selector and current weather in the header</span></li><li><span>Six tappable categories as a 3×2 grid</span></li><li><span>Personalised recommendations with rating and review count</span></li></ol>
+  </div>
+</article><article class="dec reveal">
+  <div class="dec-vis dark"><img src="Images/phones/vn_tours.webp" alt="Tours list with key info" loading="lazy"><img src="Images/phones/vn_route.webp" alt="Tour route map with numbered stops" loading="lazy"></div>
+  <div class="dec-txt">
+    <p class="dec-num">Decision 03</p>
+    <h3>Tours you can understand before you buy</h3>
+    <p>Tour cards show <b>rating, duration, pick-up and distance</b> at a glance. The detail screen adds what's included, a numbered route map and traveller reviews, so the decision happens inside the app.</p>
+    <ol class="notes"><li><span>Quick filters for day trips, walking and boat tours</span></li><li><span>Route maps with numbered stops and directions</span></li><li><span>Filters by duration, category and traveller rating</span></li></ol>
+  </div>
+</article></div></div></section>
+<section class="sec"><div class="wrap reveal"><div class="sec-grid"><p class="sec-label"><b>04</b>Screens</p><div><h2>The full journey, <span>screen by screen.</span></h2></div></div><div class="shots"><figure class="reveal"><img src="Images/vietnam/onboarding.jpg" alt="Onboarding, permissions and sign-in screens" loading="lazy"><figcaption><span><b>Onboarding</b></span><span>Value → permissions → sign-in</span></figcaption></figure><figure class="reveal"><img src="Images/vietnam/explore.jpg" alt="Home, weather, tours and route map screens" loading="lazy"><figcaption><span><b>Core experience</b></span><span>Home · weather · tours · maps</span></figcaption></figure><figure class="reveal"><img src="Images/vietnam/details.jpg" alt="Tour detail, filters and traveller reviews" loading="lazy"><figcaption><span><b>Decision screens</b></span><span>Detail · filters · reviews</span></figcaption></figure></div></div></section>
+<section class="sec">
+  <div class="wrap sec-grid">
+    <p class="sec-label"><b>05</b>Design system</p>
+    <div class="reveal"><h2>One styleguide, <span>every screen.</span></h2>
+<div class="prose"><p>Every screen is built from a shared styleguide and a component library in Figma: <b>colour tokens, a Montserrat type scale, buttons, cards and form styles</b>. It keeps 13 flows consistent and gives engineering a single reference.</p></div>
+<div class="tokens"><span class="tok"><i style="background:linear-gradient(#00D8C5,#25A7A5)"></i>Primary gradient</span><span class="tok"><i style="background:#00D8C5"></i>#00D8C5</span><span class="tok"><i style="background:#25A7A5"></i>#25A7A5</span><span class="tok"><i style="background:#333333"></i>#333333</span><span class="tok"><i style="background:#F2F2F2"></i>#F2F2F2</span><span class="tok"><i style="background:#20E091"></i>Success</span><span class="tok"><i style="background:#E02020"></i>Error</span><span class="tok"><i style="background:#fff;font-style:normal"></i>Montserrat · H1 17 / H2 15 / H3 13 / H4 12</span></div>
+<div class="sys-img"><img src="Images/vietnam/styleguide.png" alt="Styleguide: colour tokens, typography scale, cards, forms and buttons" loading="lazy"></div>
+<div class="credits"><div><p class="k">Role</p><p>Lead Designer, UI/UX</p></div><div><p class="k">Team</p><p>MOCA Platform product and engineering</p></div><div><p class="k">Tools</p><p>Figma (prototypes, styleguide, component library)</p></div></div></div>
+  </div>
+</section>
+<div class="wrap"><a class="next reveal" href="safetrac-case-study.html"><div class="next-in">
+  <div class="next-txt"><p class="k">Next case · 02</p><h3>Contact tracing with <span>SafeTrac*</span></h3><span class="go">view case →</span></div>
+  <img src="Images/safetrac/cover.jpg" alt="" loading="lazy">
+</div></a></div>
+
+</main>
+
+<section class="cta" id="contact">
+  <p class="cta-small">got a project in mind?</p>
+  <h2>let's talk <a href="mailto:lerosedays@icloud.com">lerosedays@icloud.com</a></h2>
+</section>
+
+<footer>
+  <div class="foot-card reveal">
+    <h2 class="wordmark">ROSEDAYS<sup>™</sup><span class="sub">BRAND LAB</span></h2>
+    <div class="foot-legal">
+      <span>© 2022–2026 ROSEDAYS™ BRAND LAB – Barcelona.</span>
+      <a href="portfolio_1.html#work">Work</a>
+      <a href="portfolio_1.html#contact">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+const io=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});
+},{threshold:.1});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+
+</body>
+</html>
