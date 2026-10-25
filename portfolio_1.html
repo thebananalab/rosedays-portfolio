@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ROSEDAYS — Brand Lab</title>
+<title>ROSEDAYS — Laura Rosa Díaz · Brand, Product &amp; AI Design</title>
+<meta name="description" content="Laura Rosa Díaz, creative and product designer in Barcelona. Digital products, the brands around them, and the AI workflows that scale them.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,700,900,1&display=swap" rel="stylesheet">
@@ -13,494 +14,534 @@
   --bg:#EDEDE9;
   --ink:#1D1C1B;
   --lilac:#A89CF7;
+  --deep:#5d4dcb;
+  --soft:#E4E1F9;
   --acid:#E6FF00;
-  --ink-soft:rgba(29,28,27,.55);
+  --ink-soft:rgba(29,28,27,.58);
   --line:rgba(29,28,27,.14);
   --card:#F6F6F3;
   --font-display:'Satoshi',sans-serif;
   --font-body:'Bricolage Grotesque',sans-serif;
+  --gut:2.5rem;
 }
 *{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{
-  background:var(--bg);
-  color:var(--ink);
-  font-family:var(--font-body);
-  overflow-x:hidden;
-  cursor:default;
-}
+html{scroll-behavior:smooth;scroll-padding-top:5rem}
+body{background:var(--bg);color:var(--ink);font-family:var(--font-body);overflow-x:hidden}
 ::selection{background:var(--acid);color:var(--ink)}
+a{color:inherit}
+img{max-width:100%}
+.wrap{max-width:1320px;margin:0 auto;padding:0 var(--gut)}
+.eyebrow{font-weight:600;font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft)}
 
 /* ---------- NAV ---------- */
-nav{
-  position:fixed;inset:0 0 auto 0;z-index:100;
-  display:flex;justify-content:space-between;align-items:center;
-  padding:1.4rem 2.5rem;
-  mix-blend-mode:difference;color:#fff;
-}
-nav a{color:#fff;text-decoration:none;font-family:var(--font-body);font-weight:500;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;position:relative}
+nav{position:fixed;inset:0 0 auto 0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:1.3rem var(--gut);mix-blend-mode:difference;color:#fff}
+nav a{color:#fff;text-decoration:none;font-weight:500;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;position:relative}
 nav a::after{content:'';position:absolute;left:0;bottom:-4px;width:0;height:1px;background:#fff;transition:width .35s cubic-bezier(.6,0,.2,1)}
 nav a:hover::after{width:100%}
 .nav-logo{font-family:var(--font-display);font-weight:900;font-size:1.05rem;letter-spacing:-.01em}
-.nav-links{display:flex;gap:2.2rem}
+.nav-links{display:flex;gap:2rem}
 
-/* ---------- HERO DRAG PLAYGROUND ---------- */
-@keyframes scrollX{to{transform:translateX(-50%)}}
-.hero{
-  position:relative;height:100vh;min-height:620px;overflow:hidden;
-  background:
-    radial-gradient(circle at 80% 15%,rgba(168,156,247,.28),transparent 45%),
-    radial-gradient(circle at 15% 85%,rgba(230,255,0,.14),transparent 40%),
-    var(--bg);
-}
-.hero-hint{
-  position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
-  text-align:center;pointer-events:none;z-index:0;width:100%;
-}
-.hero-hint h1{
-  font-family:var(--font-display);font-weight:900;
-  font-size:clamp(3rem,9vw,8rem);letter-spacing:-.04em;line-height:.92;
-  color:var(--ink);text-transform:uppercase;
-}
-.hero-hint h1 em{font-style:normal;color:var(--lilac)}
-.hero-hint p{
-  font-family:var(--font-body);font-weight:500;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;
-  color:var(--ink-soft);margin-top:1.4rem;
-  animation:pulse 2.4s ease-in-out infinite;
-}
+/* ---------- HERO ---------- */
+.hero{position:relative;min-height:100svh;overflow:hidden;display:flex;align-items:flex-end;
+  background:radial-gradient(circle at 82% 12%,rgba(168,156,247,.32),transparent 46%),radial-gradient(circle at 8% 92%,rgba(230,255,0,.16),transparent 40%),var(--bg)}
+.hero-copy{position:relative;z-index:2;width:100%;padding:8rem 0 4.5rem;pointer-events:none}
+.hero-copy .wrap>*{pointer-events:auto}
+.status{display:inline-flex;align-items:center;gap:.6rem;background:var(--card);border:1px solid var(--line);border-radius:999px;padding:.45rem .9rem .45rem .7rem;font-size:.74rem;font-weight:500;margin-bottom:2rem}
+.status i{width:.55rem;height:.55rem;border-radius:50%;background:#2fd36b;box-shadow:0 0 0 4px rgba(47,211,107,.18)}
+.hero h1{font-family:var(--font-display);font-weight:900;font-size:clamp(3rem,8.4vw,8.4rem);letter-spacing:-.045em;line-height:.9;max-width:11.5ch}
+.hero h1 .l{color:var(--lilac)}
+.hero h1 em{font-style:normal;color:var(--lilac)}
+.hero-row{display:flex;justify-content:space-between;align-items:flex-end;gap:2rem;margin-top:2.4rem;flex-wrap:wrap}
+.hero-row p{font-size:clamp(1.02rem,1.4vw,1.22rem);line-height:1.55;color:var(--ink-soft);max-width:540px}
+.hero-row p b{color:var(--ink);font-weight:600}
+.btns{display:flex;gap:.7rem;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:.5rem;text-decoration:none;font-weight:600;font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;border-radius:999px;padding:1rem 1.4rem;transition:transform .25s,background .25s,color .25s}
+.btn.primary{background:var(--ink);color:var(--acid)}
+.btn.ghost{border:1px solid var(--ink)}
+.btn:hover{transform:translateY(-2px)}
+.btn.ghost:hover{background:var(--ink);color:var(--bg)}
+.drag-hint{position:absolute;right:var(--gut);top:6.2rem;z-index:2;font-size:.64rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft);animation:pulse 2.4s ease-in-out infinite;pointer-events:none}
 @keyframes pulse{50%{opacity:.35}}
-.drag-item{
-  position:absolute;top:0;left:0;
-  cursor:grab;user-select:none;-webkit-user-drag:none;
-  touch-action:none;will-change:transform;
-}
-.drag-item img{
-  display:block;width:100%;height:100%;object-fit:contain;pointer-events:none;
-  filter:drop-shadow(0 14px 22px rgba(29,28,27,.22));
-  transition:filter .3s;
-}
-.drag-item.grabbing img{filter:drop-shadow(0 26px 40px rgba(29,28,27,.32))}
-.drag-item .tag{
-  position:absolute;left:10px;bottom:8px;
-  font-family:var(--font-body);font-weight:500;font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;
-  color:var(--ink);background:var(--acid);
-  padding:.28rem .6rem;border-radius:999px;pointer-events:none;
-}
+.drag-item{position:absolute;top:0;left:0;z-index:3;cursor:grab;user-select:none;-webkit-user-drag:none;touch-action:none;will-change:transform;width:clamp(120px,13vw,200px);aspect-ratio:1}
+.drag-item img{display:block;width:100%;height:100%;object-fit:contain;pointer-events:none;filter:drop-shadow(0 14px 22px rgba(29,28,27,.2));transition:filter .3s}
+.drag-item.grabbing{cursor:grabbing}
+.drag-item.grabbing img{filter:drop-shadow(0 26px 40px rgba(29,28,27,.3))}
+.drag-item .tag{position:absolute;left:8px;bottom:6px;font-weight:600;font-size:.56rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink);background:var(--acid);padding:.3rem .6rem;border-radius:999px;pointer-events:none;white-space:nowrap}
 
-/* ---------- BIG INTRO ---------- */
-.intro{padding:7rem 2.5rem 8rem;max-width:1350px;margin:0 auto}
-.intro p{
-  font-family:var(--font-display);
-  font-weight:700;
-  font-size:clamp(1.9rem,4.6vw,4.1rem);
-  line-height:1.14;
-  letter-spacing:-.02em;
-}
-.chip{
-  display:inline-block;vertical-align:middle;
-  width:1.5em;height:.95em;border-radius:.5em;margin:0 .12em;
-  transform:translateY(-.05em);
-  transition:transform .4s cubic-bezier(.34,1.6,.5,1);
-}
-.intro p:hover .chip{transform:translateY(-.05em) rotate(8deg) scale(1.08)}
-.chip-a{background:linear-gradient(120deg,var(--lilac),#7d6ce0)}
-.chip-b{background:linear-gradient(120deg,var(--acid),#b9cf00)}
-.chip-c{background:conic-gradient(var(--ink),var(--lilac),var(--ink))}
-.chip-d{background:repeating-linear-gradient(45deg,var(--ink) 0 6px,var(--acid) 6px 12px)}
-.hl{color:var(--lilac)}
-.mut{color:var(--ink-soft)}
+/* ---------- PROOF ---------- */
+.proof{border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.proof .wrap{display:grid;grid-template-columns:repeat(5,1fr)}
+.stat{padding:1.8rem 1.4rem 1.8rem 0}
+.stat+.stat{padding-left:1.4rem;border-left:1px solid var(--line)}
+.stat b{display:block;font-family:var(--font-display);font-weight:900;font-size:clamp(1.9rem,3.2vw,2.9rem);letter-spacing:-.035em;line-height:1}
+.stat b span{color:var(--lilac)}
+.stat p{font-size:.84rem;line-height:1.45;color:var(--ink-soft);margin-top:.55rem}
 
-/* ---------- SECTION MARQUEE HEADINGS ---------- */
-.sec-head{border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden;padding:1.1rem 0}
-.sec-head .track{display:flex;gap:3rem;width:max-content;animation:scrollX 22s linear infinite}
-.sec-head h2{
-  font-family:var(--font-display);font-weight:900;
-  font-size:clamp(1.9rem,7vw,5.5rem);
-  letter-spacing:-.03em;white-space:nowrap;text-transform:lowercase;
-}
+/* ---------- MARQUEE HEADS ---------- */
+@keyframes scrollX{to{transform:translateX(-50%)}}
+.sec-head{border-bottom:1px solid var(--line);overflow:hidden;padding:1.1rem 0}
+.sec-head .track{display:flex;gap:3rem;width:max-content;animation:scrollX 24s linear infinite}
+.sec-head h2{font-family:var(--font-display);font-weight:900;font-size:clamp(1.9rem,7vw,5.4rem);letter-spacing:-.03em;white-space:nowrap;text-transform:lowercase}
 .sec-head h2 em{font-style:normal;color:var(--lilac)}
-.sec-note{
-  max-width:520px;margin:2.2rem 2.5rem 3.5rem auto;
-  font-size:.95rem;line-height:1.6;color:var(--ink-soft);
-  padding-right:2.5rem;
-}
-.sec-note b{color:var(--ink);font-weight:600}
 
-/* ---------- WORK GRID ---------- */
-.work{max-width:1350px;margin:0 auto;padding:0 2.5rem 6rem;display:grid;grid-template-columns:1fr 1fr;gap:2.5rem}
-.work-card{text-decoration:none;color:inherit;display:block}
-.work-thumb{
-  aspect-ratio:4/3;border-radius:16px;overflow:hidden;position:relative;
-  transition:transform .5s cubic-bezier(.6,0,.2,1);
-}
-.work-card:hover .work-thumb{transform:scale(.98)}
-.work-thumb::after{
-  content:'view case ↗';position:absolute;inset:auto auto 14px 14px;
-  background:var(--acid);color:var(--ink);
-  font-family:var(--font-body);font-weight:500;font-size:.68rem;letter-spacing:.06em;text-transform:uppercase;
-  padding:.45rem .85rem;border-radius:999px;
-  opacity:0;transform:translateY(8px);transition:.35s;
-}
-.work-card:hover .work-thumb::after{opacity:1;transform:translateY(0)}
-.t1{background:linear-gradient(140deg,#151413,var(--ink) 50%,var(--lilac) 160%)}
-.t2{background:radial-gradient(circle at 20% 30%,var(--lilac),#5d4dcb 85%)}
-.t3{background:linear-gradient(30deg,var(--acid),#8a9c00 90%)}
-.t4{background:conic-gradient(from 90deg at 60% 40%,var(--ink),var(--lilac) 45%,var(--ink) 85%)}
-.t5{background:linear-gradient(150deg,#ffb08a,var(--ink) 80%)}
-.t6{background:radial-gradient(circle at 30% 70%,var(--acid),#1D1C1B 85%)}
-.t7{background:linear-gradient(160deg,#5d4dcb,var(--lilac) 60%,#1D1C1B 130%)}
-.work-thumb.has-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.work-thumb.has-img::before{
-  content:'';position:absolute;inset:0;
-  background:linear-gradient(180deg,rgba(0,0,0,.05),transparent 30%,rgba(0,0,0,.35));
-}
-.work-thumb .bignum{
-  position:absolute;right:16px;top:6px;z-index:1;
-  font-family:var(--font-display);font-weight:900;font-size:5rem;
-  color:rgba(237,237,233,.18);
-}
-.work-thumb.has-img .bignum{color:rgba(255,255,255,.55);text-shadow:0 2px 12px rgba(0,0,0,.35)}
-.work-meta{display:flex;justify-content:space-between;align-items:baseline;margin-top:1rem;gap:1rem}
-.work-meta h3{font-family:var(--font-display);font-weight:700;font-size:1.25rem;letter-spacing:-.01em}
-.work-meta .client{font-family:var(--font-body);font-weight:500;font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);white-space:nowrap}
-.tags{margin-top:.55rem;display:flex;flex-wrap:wrap;gap:.4rem}
-.tags span{
-  font-family:var(--font-body);font-weight:500;font-size:.6rem;letter-spacing:.08em;text-transform:uppercase;
-  border:1px solid var(--line);border-radius:999px;padding:.28rem .65rem;color:var(--ink-soft);
-  transition:.25s;
-}
-.work-card:hover .tags span{border-color:var(--lilac);color:var(--ink)}
-.view-all{display:flex;justify-content:center;padding:0 0 7rem}
-.view-all a{
-  font-family:var(--font-body);font-weight:500;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;
-  color:var(--ink);text-decoration:none;
-  border:1px solid var(--ink);border-radius:999px;padding:.9rem 2rem;
-  transition:.3s;
-}
-.view-all a:hover{background:var(--ink);color:var(--acid)}
+/* ---------- WORK ---------- */
+.work-top{display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:end;padding-top:3rem;padding-bottom:1rem}
+.work-top p{max-width:520px;font-size:1rem;line-height:1.6;color:var(--ink-soft)}
+.work-top p b{color:var(--ink);font-weight:600}
+.jump{display:flex;gap:.5rem;flex-wrap:wrap}
+.jump a{text-decoration:none;border:1px solid var(--line);background:var(--card);border-radius:999px;padding:.6rem 1rem;font-size:.78rem;font-weight:600;transition:.25s}
+.jump a sup{font-size:.62rem;color:var(--ink-soft);margin-left:.2rem}
+.jump a:hover{background:var(--ink);color:var(--acid);border-color:var(--ink)}
+.jump a:hover sup{color:var(--acid)}
+.cat{padding-top:4.5rem}
+.cat-head{display:grid;grid-template-columns:auto 1fr auto;gap:1.6rem;align-items:baseline;border-bottom:1px solid var(--line);padding-bottom:1.2rem;margin-bottom:2rem}
+.cat-head .n{font-family:var(--font-display);font-weight:900;font-size:.95rem;color:var(--lilac)}
+.cat-head h3{font-family:var(--font-display);font-weight:900;font-size:clamp(1.8rem,3.6vw,3rem);letter-spacing:-.035em;line-height:1}
+.cat-head p{font-size:.9rem;line-height:1.5;color:var(--ink-soft);max-width:380px;text-align:right}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:2.4rem 2rem}
+.card{text-decoration:none;color:inherit;display:block}
+.thumb{aspect-ratio:4/3;border-radius:18px;overflow:hidden;position:relative;background:var(--card)}
+.thumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.2,.7,.3,1)}
+.card:hover .thumb img{transform:scale(1.035)}
+.thumb::after{content:'view case ↗';position:absolute;left:14px;bottom:14px;background:var(--acid);color:var(--ink);font-weight:600;font-size:.66rem;letter-spacing:.06em;text-transform:uppercase;padding:.45rem .85rem;border-radius:999px;opacity:0;transform:translateY(8px);transition:.35s}
+.card:hover .thumb::after{opacity:1;transform:none}
+.meta{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;margin-top:1rem}
+.meta h4{font-family:var(--font-display);font-weight:700;font-size:1.28rem;letter-spacing:-.015em;line-height:1.2}
+.meta .client{font-weight:500;font-size:.66rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);white-space:nowrap}
+.tags{margin-top:.6rem;display:flex;flex-wrap:wrap;gap:.4rem}
+.tags span{font-weight:500;font-size:.6rem;letter-spacing:.08em;text-transform:uppercase;border:1px solid var(--line);border-radius:999px;padding:.28rem .65rem;color:var(--ink-soft);transition:.25s}
+.card:hover .tags span{border-color:var(--lilac);color:var(--ink)}
+/* feature (AI) */
+.feature{display:grid;grid-template-columns:1.15fr 1fr;background:var(--ink);color:#EDEDE9;border-radius:24px;overflow:hidden;text-decoration:none}
+.feature .f-img{position:relative;min-height:440px}
+.feature .f-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.2,.7,.3,1)}
+.feature:hover .f-img img{transform:scale(1.03)}
+.f-txt{padding:2.8rem;display:flex;flex-direction:column;gap:1.2rem}
+.f-txt .k{font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:var(--acid);font-weight:700}
+.f-txt h4{font-family:var(--font-display);font-weight:900;font-size:clamp(1.8rem,3vw,2.6rem);letter-spacing:-.03em;line-height:1.02}
+.f-txt h4 span{color:var(--lilac)}
+.f-txt p{font-size:.98rem;line-height:1.6;color:rgba(237,237,233,.72)}
+.f-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:.8rem;margin-top:auto}
+.f-stats div{border:1px solid rgba(237,237,233,.2);border-radius:14px;padding:.9rem .8rem}
+.f-stats b{display:block;font-family:var(--font-display);font-weight:900;font-size:1.5rem;letter-spacing:-.03em}
+.f-stats b span{color:var(--acid)}
+.f-stats small{font-size:.72rem;line-height:1.35;color:rgba(237,237,233,.65)}
+.f-go{align-self:flex-start;background:var(--acid);color:var(--ink);border-radius:999px;padding:.6rem 1.1rem;font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;font-weight:700;transition:transform .3s}
+.feature:hover .f-go{transform:translateX(6px)}
 
 /* ---------- SERVICES ---------- */
-.services{max-width:1350px;margin:0 auto;padding:0 2.5rem 7rem;display:grid;grid-template-columns:repeat(3,1fr);gap:3rem}
-.svc h3{
-  font-family:var(--font-display);font-weight:700;
-  font-size:clamp(1.6rem,2.6vw,2.2rem);letter-spacing:-.02em;line-height:1.05;margin-bottom:1.2rem;
-}
-.svc h3 .dot{display:inline-block;width:.75em;height:.75em;border-radius:50%;vertical-align:baseline;margin:0 .1em}
-.d1{background:var(--lilac)}.d2{background:var(--acid)}.d3{background:var(--ink)}
-.svc .desc{font-size:.9rem;line-height:1.6;color:var(--ink-soft);margin-bottom:1.6rem;min-height:4.2em}
-.svc ol{list-style:none;border-top:1px solid var(--line)}
-.svc li{
-  display:flex;gap:1rem;align-items:baseline;
-  padding:.75rem 0;border-bottom:1px solid var(--line);
-  font-size:.9rem;transition:padding-left .3s,color .3s;
-}
-.svc li:hover{padding-left:.5rem;color:#7d6ce0}
-.svc li .n{font-family:var(--font-body);font-weight:500;font-size:.62rem;letter-spacing:.06em;color:var(--ink-soft);min-width:3.4em}
+.services{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem;padding-top:3rem;padding-bottom:2rem}
+.svc{background:var(--card);border-radius:22px;padding:2rem 1.8rem;display:flex;flex-direction:column}
+.svc .top{display:flex;justify-content:space-between;align-items:center;margin-bottom:2.4rem}
+.svc .top .n{font-family:var(--font-display);font-weight:900;font-size:.9rem;color:var(--ink-soft)}
+.svc .top .dot{width:2.2rem;height:2.2rem;border-radius:50%}
+.d1{background:var(--lilac)}.d2{background:var(--acid)}.d3{background:conic-gradient(var(--ink),var(--lilac),var(--ink))}
+.svc h3{font-family:var(--font-display);font-weight:900;font-size:clamp(1.6rem,2.4vw,2.1rem);letter-spacing:-.03em;line-height:1.02;margin-bottom:.9rem}
+.svc .desc{font-size:.93rem;line-height:1.58;color:var(--ink-soft);margin-bottom:1.6rem}
+.svc ul{list-style:none;border-top:1px solid var(--line);margin-bottom:1.6rem}
+.svc li{padding:.7rem 0;border-bottom:1px solid var(--line);font-size:.9rem;font-weight:500;transition:padding-left .3s,color .3s}
+.svc li:hover{padding-left:.4rem;color:var(--deep)}
+.svc .see{margin-top:auto;align-self:flex-start;text-decoration:none;font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;border-bottom:2px solid var(--lilac);padding-bottom:.2rem}
+
+/* ---------- LAB ---------- */
+.lab-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:1.4rem;padding-top:3rem}
+.lab{border-radius:22px;padding:2rem;display:flex;flex-direction:column;gap:.9rem;text-decoration:none;min-height:300px;transition:transform .3s}
+a.lab:hover{transform:translateY(-4px)}
+.lab.big{background:linear-gradient(150deg,var(--lilac),var(--deep));color:#fff}
+.lab.dark{background:var(--ink);color:#EDEDE9}
+.lab.light{background:var(--card)}
+.lab .k{font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;font-weight:700;opacity:.8}
+.lab h3{font-family:var(--font-display);font-weight:900;font-size:clamp(1.5rem,2.4vw,2.2rem);letter-spacing:-.03em;line-height:1.02}
+.lab p{font-size:.92rem;line-height:1.55;opacity:.82}
+.lab .go{margin-top:auto;align-self:flex-start;font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;font-weight:700;border-radius:999px;padding:.55rem 1rem}
+.lab.big .go{background:var(--acid);color:var(--ink)}
+.lab.dark .go{border:1px solid rgba(237,237,233,.4)}
+.lab.light .go{border:1px solid var(--line);color:var(--ink-soft)}
+
+/* ---------- ABOUT ---------- */
+.about{display:grid;grid-template-columns:1fr 1fr;gap:4rem;padding-top:4rem}
+.about .big{font-family:var(--font-display);font-weight:700;font-size:clamp(1.6rem,2.8vw,2.5rem);letter-spacing:-.025em;line-height:1.18}
+.about .big span{color:var(--lilac)}
+.about .sub{font-size:1rem;line-height:1.65;color:var(--ink-soft);margin-top:1.6rem;max-width:520px}
+.about .sub b{color:var(--ink);font-weight:600}
+.exp{list-style:none;border-top:1px solid var(--line)}
+.exp li{display:grid;grid-template-columns:1fr auto;gap:.2rem 1rem;padding:1rem 0;border-bottom:1px solid var(--line)}
+.exp b{font-weight:600;font-size:.98rem}
+.exp span{font-size:.86rem;color:var(--ink-soft)}
+.exp time{grid-row:span 2;font-size:.74rem;letter-spacing:.06em;color:var(--ink-soft);align-self:center;white-space:nowrap}
+.edu{display:flex;flex-wrap:wrap;gap:.45rem;margin-top:1.6rem}
+.edu span{font-size:.72rem;font-weight:600;background:var(--card);border:1px solid var(--line);border-radius:999px;padding:.4rem .8rem}
 
 /* ---------- CLIENTS ---------- */
-.clients-marquee{border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden;padding:2rem 0}
-.clients-marquee .track{display:flex;gap:4.5rem;width:max-content;animation:scrollX 30s linear infinite;align-items:center}
-.clients-marquee .logo{
-  font-family:var(--font-display);font-weight:700;font-size:1.35rem;letter-spacing:-.01em;
-  color:var(--ink-soft);white-space:nowrap;transition:color .3s;
-}
-.clients-marquee .logo:hover{color:var(--ink)}
-.clients-marquee .logo.alt{font-weight:400;font-size:1.1rem;font-style:italic}
+.clients{border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden;padding:2rem 0;margin-top:6rem}
+.clients .track{display:flex;gap:4.5rem;width:max-content;animation:scrollX 32s linear infinite;align-items:center}
+.clients .logo{font-family:var(--font-display);font-weight:700;font-size:1.35rem;color:var(--ink-soft);white-space:nowrap}
+.clients .logo.alt{font-weight:400;font-size:1.1rem;font-style:italic}
 
-/* ---------- CTA ---------- */
-.cta{padding:9rem 2.5rem 4rem;text-align:center}
-.cta .cta-small{font-family:var(--font-body);font-weight:500;font-size:.75rem;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-soft)}
-.cta h2{
-  font-family:var(--font-display);font-weight:900;
-  font-size:clamp(2.6rem,7vw,5.8rem);letter-spacing:-.03em;margin:.8rem 0 0;
-}
-.cta h2 a{color:inherit;text-decoration:none;position:relative;display:inline-block}
-.cta h2 a::after{
-  content:'';position:absolute;left:0;bottom:.05em;width:100%;height:.08em;background:var(--lilac);
-  transform:scaleX(0);transform-origin:left;transition:transform .5s cubic-bezier(.6,0,.2,1);
-}
-.cta h2 a:hover::after{transform:scaleX(1)}
+/* ---------- CONTACT ---------- */
+.contact{padding:8rem 0 4rem}
+.contact h2{font-family:var(--font-display);font-weight:900;font-size:clamp(2.8rem,8vw,7rem);letter-spacing:-.045em;line-height:.92;max-width:12ch}
+.contact h2 span{color:var(--lilac)}
+.paths{display:grid;grid-template-columns:1fr 1fr;gap:1.4rem;margin-top:3rem}
+.path{border-radius:24px;padding:2.2rem;text-decoration:none;display:flex;flex-direction:column;gap:.8rem;min-height:250px;transition:transform .3s}
+.path:hover{transform:translateY(-4px)}
+.path.a{background:var(--ink);color:#EDEDE9}
+.path.b{background:var(--acid);color:var(--ink)}
+.path .k{font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;font-weight:700;opacity:.75}
+.path h3{font-family:var(--font-display);font-weight:900;font-size:clamp(1.7rem,3vw,2.5rem);letter-spacing:-.03em;line-height:1.02}
+.path p{font-size:.95rem;line-height:1.55;opacity:.8;max-width:420px}
+.path .go{margin-top:auto;font-family:var(--font-display);font-weight:700;font-size:1.05rem;border-bottom:2px solid currentColor;align-self:flex-start;padding-bottom:.15rem}
 
-/* ---------- FOOTER (BRANDBRIEF STYLE) ---------- */
+/* ---------- FOOTER ---------- */
 footer{padding:2rem 1.2rem 1.2rem}
-.foot-card{
-  background:var(--card);
-  border-radius:28px;
-  padding:3rem 3rem 1.6rem;
-  max-width:1600px;margin:0 auto;
-}
-.foot-top{
-  display:grid;
-  grid-template-columns:1.4fr 1fr 1fr 1fr;
-  gap:2.5rem;
-  margin-bottom:7rem;
-}
-.eyebrow{
-  font-family:var(--font-body);font-weight:600;
-  font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;
-  color:var(--ink-soft);margin-bottom:1rem;
-}
-.foot-id p{font-family:var(--font-body);font-weight:600;font-size:1.05rem;line-height:1.45}
-.foot-id .block{margin-bottom:2.2rem}
-.foot-id a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--lilac)}
+.foot-card{background:var(--card);border-radius:28px;padding:3rem 3rem 1.6rem;max-width:1600px;margin:0 auto}
+.foot-top{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:2.5rem;margin-bottom:6rem}
+.foot-top .eyebrow{margin-bottom:1rem}
+.foot-id p{font-weight:600;font-size:1.05rem;line-height:1.45}
+.foot-id .block{margin-bottom:2rem}
+.foot-id a{text-decoration:none;border-bottom:1px solid var(--lilac)}
+.foot-id p.eyebrow{font-size:.62rem;font-weight:600;line-height:1;margin-bottom:1rem}
 .foot-col ul{list-style:none}
 .foot-col li{margin-bottom:.7rem}
-.foot-col a{
-  color:var(--ink);text-decoration:none;font-size:.95rem;font-weight:500;
-  position:relative;transition:color .25s;
-}
-.foot-col a:hover{color:#7d6ce0}
-.wordmark{
-  font-family:var(--font-display);font-weight:900;
-  font-size:clamp(3.2rem,12.5vw,13.5rem);
-  letter-spacing:-.045em;line-height:.85;
-  text-transform:uppercase;white-space:nowrap;
-  text-align:left;
-}
+.foot-col a{text-decoration:none;font-size:.95rem;font-weight:500;transition:color .25s}
+.foot-col a:hover{color:var(--deep)}
+.wordmark{font-family:var(--font-display);font-weight:900;font-size:clamp(3.2rem,12.5vw,13.5rem);letter-spacing:-.045em;line-height:.85;text-transform:uppercase;white-space:nowrap}
 .wordmark sup{font-size:.22em;vertical-align:super;letter-spacing:0}
-.wordmark .sub{
-  display:block;
-  font-size:clamp(1rem,3.2vw,3.4rem);
-  font-weight:700;letter-spacing:.02em;
-  color:var(--lilac);
-  margin-top:.15em;
-}
-.foot-legal{
-  display:flex;flex-wrap:wrap;align-items:center;gap:1.6rem;
-  border-top:1px solid var(--line);
-  margin-top:2.5rem;padding-top:1.3rem;
-  font-size:.78rem;color:var(--ink-soft);
-}
-.foot-legal a{color:var(--ink-soft);text-decoration:none;transition:color .25s}
-.foot-legal a:hover{color:var(--ink)}
+.wordmark .sub{display:block;font-size:clamp(1rem,3.2vw,3.4rem);font-weight:700;letter-spacing:.02em;color:var(--lilac);margin-top:.15em}
+.foot-legal{display:flex;flex-wrap:wrap;align-items:center;gap:1.2rem;border-top:1px solid var(--line);margin-top:2.5rem;padding-top:1.3rem;font-size:.78rem;color:var(--ink-soft)}
 .foot-legal .copy{margin-right:auto}
-.soc{
-  display:inline-flex;width:26px;height:26px;border-radius:6px;
-  background:var(--ink);color:var(--card);
-  align-items:center;justify-content:center;
-  font-family:var(--font-display);font-weight:700;font-size:.62rem;
-  text-decoration:none;transition:background .25s,color .25s;
-}
+.soc{display:inline-flex;min-width:28px;height:28px;padding:0 .5rem;border-radius:7px;background:var(--ink);color:var(--card);align-items:center;justify-content:center;font-family:var(--font-display);font-weight:700;font-size:.64rem;text-decoration:none;transition:background .25s,color .25s}
 .soc:hover{background:var(--lilac);color:var(--ink)}
 
 /* ---------- REVEAL ---------- */
-.reveal{opacity:0;transform:translateY(40px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.7,.3,1)}
+.reveal{opacity:0;transform:translateY(36px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.7,.3,1)}
 .reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  .reveal{opacity:1;transform:none;transition:none}
+  .sec-head .track,.clients .track{animation:none}
+  html{scroll-behavior:auto}
+}
 
-@media(max-width:900px){
-  .drag-item{max-width:38vw;max-height:26vh}
-  .work{grid-template-columns:1fr}
-  .services{grid-template-columns:1fr}
-  .nav-links{gap:1.3rem}
-  .sec-note{margin:1.8rem 1.5rem 2.5rem;padding-right:0}
-  .intro{padding:4.5rem 1.5rem 5rem}
-  nav{padding:1.2rem 1.5rem}
-  .work,.services{padding-left:1.5rem;padding-right:1.5rem}
-  .cta{padding:6rem 1.5rem 3rem}
+/* ---------- RESPONSIVE ---------- */
+@media(max-width:1000px){
+  :root{--gut:1.5rem}
+  .nav-links{gap:1.1rem}
+  .nav-links .hide-m{display:none}
+  .hero{align-items:flex-end}
+  .hero-copy{padding:9rem 0 3rem}
+  .drag-hint{display:none}
+  .drag-item{width:86px}
+  .drag-item .tag{font-size:.48rem;padding:.25rem .5rem;left:2px;bottom:0}
+  .hero-copy{padding-top:16rem}
+  .proof .wrap{grid-template-columns:1fr 1fr}
+  .stat,.stat+.stat{padding:1.3rem 1rem 1.3rem 0;border-left:none;border-bottom:1px solid var(--line)}
+  .stat:nth-child(even){padding-left:1rem;border-left:1px solid var(--line)}
+  .stat:last-child{border-bottom:none}
+  .work-top{grid-template-columns:1fr}
+  .cat-head{grid-template-columns:auto 1fr}
+  .cat-head p{grid-column:1/-1;text-align:left;max-width:none}
+  .grid,.services,.lab-grid,.about,.paths,.feature{grid-template-columns:1fr}
+  .feature .f-img{min-height:0;aspect-ratio:4/3}
+  .f-txt{padding:2rem 1.5rem}
+  .about{gap:2.5rem}
   .foot-card{padding:2rem 1.5rem 1.2rem}
   .foot-top{grid-template-columns:1fr 1fr;gap:2rem;margin-bottom:4rem}
   .wordmark{white-space:normal}
+}
+@media(max-width:560px){
+  .meta{flex-direction:column;gap:.3rem}
+  .f-stats{grid-template-columns:1fr 1fr 1fr;gap:.5rem}
+  .f-stats div{padding:.7rem .55rem}
+  .f-stats b{font-size:1.2rem}
 }
 </style>
 </head>
 <body>
 
 <nav>
-  <a href="#" class="nav-logo">RD*</a>
+  <a href="#top" class="nav-logo">RD*</a>
   <div class="nav-links">
     <a href="#work">work</a>
-    <a href="#services">about</a>
-    <a href="#contact">lab</a>
+    <a href="#services">services</a>
+    <a href="taller-ia-para-creativos/" class="hide-m">taller</a>
+    <a href="#about" class="hide-m">about</a>
+    <a href="#contact">contact</a>
   </div>
 </nav>
 
-<!-- HERO: DRAG PLAYGROUND -->
+<main id="top">
+
+<!-- HERO -->
 <header class="hero" id="playground">
-  <div class="hero-hint">
-    <h1>creative<br>chaos<em>*</em></h1>
-    <p>( drag the pieces around )</p>
+  <p class="drag-hint">( drag the characters )</p>
+
+  <div class="drag-item" data-x="58" data-y="16" data-r="-7" data-mx="0" data-my=".8">
+    <img src="Images/Hero/11669919.webp" alt="" draggable="false"><span class="tag">product &amp; ux</span>
+  </div>
+  <div class="drag-item" data-x="80" data-y="6" data-r="6" data-mx=".3" data-my=".05">
+    <img src="Images/Hero/11669921.webp" alt="" draggable="false"><span class="tag">brand &amp; campaigns</span>
+  </div>
+  <div class="drag-item" data-x="96" data-y="34" data-r="-4" data-mx="1" data-my=".75">
+    <img src="Images/Hero/11669928.webp" alt="" draggable="false"><span class="tag">ai workflows</span>
+  </div>
+  <div class="drag-item" data-x="74" data-y="40" data-r="8" data-mx=".72" data-my=".05">
+    <img src="Images/Hero/11669922.webp" alt="" draggable="false"><span class="tag">content &amp; voice</span>
+  </div>
+  <div class="drag-item" data-x="98" data-y="58" data-r="-3" data-mx=".5" data-my="1">
+    <img src="Images/Hero/11669931.webp" alt="" draggable="false"><span class="tag">workshops</span>
   </div>
 
-  <div class="drag-item" style="width:220px;height:220px" data-x="6" data-y="14" data-r="-7">
-    <img src="Images/Hero/11669919.png" alt="ref">
-    <span class="tag">content &amp; voice</span>
-  </div>
-  <div class="drag-item" style="width:220px;height:220px" data-x="76" data-y="8" data-r="5">
-    <img src="Images/Hero/11669921.png" alt="ref">
-    <span class="tag">launch campaigns</span>
-  </div>
-  <div class="drag-item" style="width:220px;height:220px" data-x="70" data-y="62" data-r="-4">
-    <img src="Images/Hero/11669922.png" alt="ref">
-    <span class="tag">newsletter growth</span>
-  </div>
-  <div class="drag-item" style="width:220px;height:220px" data-x="12" data-y="58" data-r="8">
-    <img src="Images/Hero/11669928.png" alt="ref">
-    <span class="tag">ai &amp; automation</span>
-  </div>
-  <div class="drag-item" style="width:220px;height:220px" data-x="42" data-y="30" data-r="-3">
-    <img src="Images/Hero/11669931.png" alt="ref">
-    <span class="tag">community &amp; events</span>
+  <div class="hero-copy">
+    <div class="wrap">
+      <p class="status"><i></i>Laura Rosa Díaz · Barcelona · open to roles &amp; projects</p>
+      <h1>Brand, product <span class="l">&amp; AI,</span> designed as one system<em>*</em></h1>
+      <div class="hero-row">
+        <p>Creative &amp; product designer with <b>10+ years across Europe and LatAm</b>. I design digital products, the brands around them, and <b>the AI workflows that let small teams ship on-brand at scale.</b></p>
+        <div class="btns">
+          <a class="btn primary" href="#work">see selected work ↓</a>
+          <a class="btn ghost" href="#contact">get in touch</a>
+        </div>
+      </div>
+    </div>
   </div>
 </header>
 
-<!-- BIG INTRO -->
-<section class="intro reveal">
-  <p>
-    Laura is a <span class="chip chip-a"></span> creative &amp; brand leader, 10+ years
-    across Europe and LatAm, now working the intersection of <span class="hl">Content Strategy</span>,
-    <span class="chip chip-b"></span> AI-Powered Workflows and Digital Marketing
-    <span class="chip chip-c"></span> — editorial direction, brand voice, campaigns that scale.
-    <span class="mut">She runs teams end-to-end,</span> <span class="chip chip-d"></span>
-    <span class="mut">across product, growth and engineering, with zero patience for "just throw budget at Meta Ads."</span>
-  </p>
+<!-- PROOF -->
+<section class="proof" aria-label="Highlights">
+  <div class="wrap">
+    <div class="stat"><b>10<span>+</span></b><p>years in brand, product &amp; digital</p></div>
+    <div class="stat"><b>4</b><p>countries: Spain, Sweden, Serbia, Colombia</p></div>
+    <div class="stat"><b>30K<span>+</span></b><p>on-brand images made by AI tools I built</p></div>
+    <div class="stat"><b>+35<span>%</span></b><p>engagement in 6 months, DOIY &amp; Eat My Socks</p></div>
+    <div class="stat"><b>3</b><p>ventures founded, from fashion to EdTech</p></div>
+  </div>
 </section>
 
-<!-- FEATURED WORK -->
-<div class="sec-head" id="work">
-  <div class="track">
-    <h2>featured work<em>*</em></h2><h2>featured work<em>*</em></h2><h2>featured work<em>*</em></h2><h2>featured work<em>*</em></h2>
+<!-- WORK -->
+<section id="work">
+  <div class="sec-head">
+    <div class="track">
+      <h2>selected work<em>*</em></h2><h2>selected work<em>*</em></h2><h2>selected work<em>*</em></h2><h2>selected work<em>*</em></h2>
+    </div>
   </div>
-</div>
-<p class="sec-note reveal"><b>*Products, campaigns and communities that outgrew the brief.</b> Product and marketing design carried end-to-end, from the first wireframe to launch, and the AI workflows that scale it.</p>
 
-<section class="work">
-  <a class="work-card reveal" href="digital-city-vietnam-case-study.html">
-    <div class="work-thumb has-img"><img src="Images/vietnam/cover.jpg" alt="Digital City Vietnam travel app cover"><span class="bignum">01</span></div>
-    <div class="work-meta"><h3>Product Design: Digital Travel Guide</h3><span class="client">MOCA Platform — Vietnam</span></div>
-    <div class="tags"><span>B2C Mobile App</span><span>Prototypes</span><span>Styleguide</span></div>
-  </a>
-  <a class="work-card reveal" href="safetrac-case-study.html">
-    <div class="work-thumb has-img"><img src="Images/safetrac/cover.jpg" alt="SafeTrac contact tracing app cover"><span class="bignum">02</span></div>
-    <div class="work-meta"><h3>Product Design: Contact Tracing App</h3><span class="client">SafeTrac — Puerto Rico</span></div>
-    <div class="tags"><span>iOS App</span><span>Onboarding</span><span>Risk States</span></div>
-  </a>
-  <a class="work-card reveal" href="ai-brand-pipeline-case-study.html">
-    <div class="work-thumb has-img"><img src="Images/ai-brand-pipeline/cover.jpg" alt="AI on-brand pipeline cover"><span class="bignum">03</span></div>
-    <div class="work-meta"><h3>Teaching AI to Design On-Brand</h3><span class="client">EDUCA EDTECH Group</span></div>
-    <div class="tags"><span>Generative AI</span><span>Claude Code</span><span>30,000+ images</span></div>
-  </a>
-  <a class="work-card reveal" href="doiy-eatmysocks-case-study.html">
-    <div class="work-thumb has-img"><img src="Images/The Wow Effect Company/cover2.png" alt="DOIY & Eat My Socks cover"><span class="bignum">04</span></div>
-    <div class="work-meta"><h3>Content &amp; Events Campaign</h3><span class="client">DOIY &amp; Eat My Socks — The Wow Effect Co.</span></div>
-    <div class="tags"><span>Content Pillars</span><span>UGC &amp; Influencer</span><span>Paid + Organic</span></div>
-  </a>
-  <a class="work-card reveal" href="eventme-case-study.html">
-    <div class="work-thumb has-img"><img src="Images/eventme/cover.png" alt="EventMe cover"><span class="bignum">05</span></div>
-    <div class="work-meta"><h3>Brand &amp; Communication</h3><span class="client">EventMe, Serbia</span></div>
-    <div class="tags"><span>Brand Voice</span><span>Content Direction</span><span>Multi-channel</span></div>
-  </a>
-  <a class="work-card reveal" href="timeling-case-study.html">
-    <div class="work-thumb has-img"><img src="Images/timeling/cover.png" alt="Timeling cover"><span class="bignum">06</span></div>
-    <div class="work-meta"><h3>Copy Campaign: Online Is Good But Offline Is Better</h3><span class="client">Timeling, Sweden</span></div>
-    <div class="tags"><span>Campaign Copy</span><span>Tone of Voice</span><span>Relaunch</span></div>
-  </a>
-  <a class="work-card reveal" href="artskool-case-study.html">
-    <div class="work-thumb has-img"><img src="Images/artskool/cover2.png" alt="Artskool cover"><span class="bignum">07</span></div>
-    <div class="work-meta"><h3>Creative Campaigns</h3><span class="client">Artskool, Medellín</span></div>
-    <div class="tags"><span>Community</span><span>Editorial</span><span>Co-founder</span></div>
-  </a>
+  <div class="wrap">
+    <div class="work-top reveal">
+      <p><b>*Three disciplines, one way of working.</b> Products designed end to end, AI tools that keep a brand consistent at scale, and campaigns with a voice of their own.</p>
+      <div class="jump" aria-label="Jump to a discipline">
+        <a href="#product">Product &amp; UX<sup>02</sup></a>
+        <a href="#ai">AI Workflows<sup>01</sup></a>
+        <a href="#brand">Brand &amp; Campaigns<sup>04</sup></a>
+      </div>
+    </div>
+
+    <!-- 01 PRODUCT -->
+    <div class="cat" id="product">
+      <div class="cat-head reveal">
+        <span class="n">01</span><h3>Product &amp; UX</h3>
+        <p>Mobile products from first flow to final UI: prototypes, interaction design and the styleguides behind them.</p>
+      </div>
+      <div class="grid">
+        <a class="card reveal" href="digital-city-vietnam-case-study.html">
+          <div class="thumb"><img src="Images/vietnam/cover.jpg" alt="Digital City Vietnam travel app shown on three iPhones" loading="lazy"></div>
+          <div class="meta"><h4>A digital travel guide for Quang Ninh</h4><span class="client">MOCA Platform · Vietnam</span></div>
+          <div class="tags"><span>B2C iOS app</span><span>13 flows</span><span>Styleguide</span></div>
+        </a>
+        <a class="card reveal" href="safetrac-case-study.html">
+          <div class="thumb"><img src="Images/safetrac/cover.jpg" alt="SafeTrac contact tracing app shown on three iPhones" loading="lazy"></div>
+          <div class="meta"><h4>Contact tracing people could trust</h4><span class="client">SafeTrac · Puerto Rico</span></div>
+          <div class="tags"><span>iOS app</span><span>Privacy-first onboarding</span><span>Rolled out in all schools</span></div>
+        </a>
+      </div>
+    </div>
+
+    <!-- 02 AI -->
+    <div class="cat" id="ai">
+      <div class="cat-head reveal">
+        <span class="n">02</span><h3>AI Workflows</h3>
+        <p>Tools that turn brand guidelines into rules the AI follows, built with Claude Code and generative APIs.</p>
+      </div>
+      <a class="feature reveal" href="ai-brand-pipeline-case-study.html">
+        <div class="f-img"><img src="Images/ai-brand-pipeline/cover.jpg" alt="30,000+ on-brand images generated by AI that follows the brandbook" loading="lazy"></div>
+        <div class="f-txt">
+          <p class="k">EDUCA EDTECH Group · EducaHub.ai</p>
+          <h4>Teaching AI to design <span>on-brand*</span></h4>
+          <p>I identified the need, defined the requirements and built the first versions of Cover Generator and Ad Batch Tool, then scaled them with a developer.</p>
+          <div class="f-stats">
+            <div><b>30K<span>+</span></b><small>images in production</small></div>
+            <div><b>~2.5K<span>h</span></b><small>design hours saved (est.)</small></div>
+            <div><b>6–8</b><small>ad formats per run</small></div>
+          </div>
+          <span class="f-go">view case →</span>
+        </div>
+      </a>
+    </div>
+
+    <!-- 03 BRAND -->
+    <div class="cat" id="brand">
+      <div class="cat-head reveal">
+        <span class="n">03</span><h3>Brand &amp; Campaigns</h3>
+        <p>Identity, tone of voice and multichannel campaigns for apps, DTC brands and communities.</p>
+      </div>
+      <div class="grid">
+        <a class="card reveal" href="doiy-eatmysocks-case-study.html">
+          <div class="thumb"><img src="Images/The Wow Effect Company/cover2.png" alt="DOIY Holiday Gift Guide campaign" loading="lazy"></div>
+          <div class="meta"><h4>Two brands, one clear intent</h4><span class="client">DOIY &amp; Eat My Socks</span></div>
+          <div class="tags"><span>+35% engagement</span><span>UGC &amp; influencer</span><span>Paid + organic</span></div>
+        </a>
+        <a class="card reveal" href="eventme-case-study.html">
+          <div class="thumb"><img src="Images/eventme/cover.png" alt="EventMe brand system and campaign pieces" loading="lazy"></div>
+          <div class="meta"><h4>A brand with its own character</h4><span class="client">EventMe · Serbia</span></div>
+          <div class="tags"><span>Rebrand</span><span>Brand voice</span><span>Multichannel</span></div>
+        </a>
+        <a class="card reveal" href="timeling-case-study.html">
+          <div class="thumb"><img src="Images/timeling/cover.png" alt="Timeling campaign: Online is good but offline is better" loading="lazy"></div>
+          <div class="meta"><h4>Online is good, offline is better</h4><span class="client">Timeling · Sweden</span></div>
+          <div class="tags"><span>Campaign copy</span><span>Tone of voice</span><span>Relaunch</span></div>
+        </a>
+        <a class="card reveal" href="artskool-case-study.html">
+          <div class="thumb"><img src="Images/artskool/cover2.png" alt="Artskool creative campaigns" loading="lazy"></div>
+          <div class="meta"><h4>Creative education with social impact</h4><span class="client">Artskool · Medellín</span></div>
+          <div class="tags"><span>Co-founder</span><span>Community</span><span>Editorial</span></div>
+        </a>
+      </div>
+    </div>
+  </div>
 </section>
-<div class="view-all reveal"><a href="#">view all work</a></div>
 
-<!-- WHAT I DO -->
-<div class="sec-head" id="services">
-  <div class="track">
-    <h2>what i do<em>*</em></h2><h2>what i do<em>*</em></h2><h2>what i do<em>*</em></h2><h2>what i do<em>*</em></h2><h2>what i do<em>*</em></h2>
+<!-- SERVICES -->
+<section id="services" style="margin-top:7rem">
+  <div class="sec-head" style="border-top:1px solid var(--line)">
+    <div class="track">
+      <h2>how i can help<em>*</em></h2><h2>how i can help<em>*</em></h2><h2>how i can help<em>*</em></h2><h2>how i can help<em>*</em></h2>
+    </div>
   </div>
-</div>
-<p class="sec-note reveal"><b>*Marketing that gets its hands dirty,</b> measured down to the last point on a banner — never "just throw budget at Meta Ads."</p>
+  <div class="wrap services">
+    <div class="svc reveal">
+      <div class="top"><span class="n">01</span><span class="dot d1"></span></div>
+      <h3>Product &amp; UX design</h3>
+      <p class="desc">From discovery to shipped UI, for mobile and web products.</p>
+      <ul><li>Research &amp; discovery</li><li>Wireframes &amp; interactive prototypes</li><li>UI for iOS, Android &amp; web</li><li>Design systems &amp; styleguides</li><li>A/B tests &amp; data-informed iteration</li></ul>
+      <a class="see" href="#product">see product work</a>
+    </div>
+    <div class="svc reveal">
+      <div class="top"><span class="n">02</span><span class="dot d2"></span></div>
+      <h3>Brand &amp; campaigns</h3>
+      <p class="desc">Identity, voice and campaigns where the visual and the message are born together.</p>
+      <ul><li>Brand identity &amp; guidelines</li><li>Campaign concepts &amp; art direction</li><li>Tone of voice &amp; copywriting (ES/EN)</li><li>Social, email &amp; paid creatives</li><li>UGC &amp; influencer programs</li></ul>
+      <a class="see" href="#brand">see brand work</a>
+    </div>
+    <div class="svc reveal">
+      <div class="top"><span class="n">03</span><span class="dot d3"></span></div>
+      <h3>AI creative workflows</h3>
+      <p class="desc">Generative AI as part of the daily process, so a team multiplies output without losing the brand.</p>
+      <ul><li>On-brand AI image &amp; ad pipelines</li><li>Brand rules, prompts &amp; guides for AI</li><li>AI-assisted builds with Claude Code</li><li>Midjourney, Flora, Magnific, Pletor</li><li>Team training &amp; workshops</li></ul>
+      <a class="see" href="#ai">see ai work</a>
+    </div>
+  </div>
+</section>
 
-<section class="services">
-  <div class="svc reveal">
-    <h3>content <span class="dot d1"></span> with voice</h3>
-    <p class="desc">(01) Blog, socials, newsletters — written, edited, and kept alive with real feedback loops. Market reports and reference guides included.</p>
-    <ol>
-      <li><span class="n">01.01</span>Blog &amp; Editorial Content</li>
-      <li><span class="n">01.02</span>Newsletter Strategy</li>
-      <li><span class="n">01.03</span>Social Copy (X, LinkedIn)</li>
-      <li><span class="n">01.04</span>Brand Voice &amp; Tone</li>
-      <li><span class="n">01.05</span>Market Reports &amp; Guides</li>
-      <li><span class="n">01.06</span>Bilingual Content (ES/EN)</li>
-    </ol>
+<!-- LAB -->
+<section id="lab" style="margin-top:5rem">
+  <div class="sec-head" style="border-top:1px solid var(--line)">
+    <div class="track">
+      <h2>lab &amp; talks<em>*</em></h2><h2>lab &amp; talks<em>*</em></h2><h2>lab &amp; talks<em>*</em></h2><h2>lab &amp; talks<em>*</em></h2><h2>lab &amp; talks<em>*</em></h2>
+    </div>
   </div>
-  <div class="svc reveal">
-    <h3><span class="dot d2"></span> launches, hollywood-style</h3>
-    <p class="desc">(02) End-to-end campaigns from idea to production — teaser, preview, launch. Comfortable briefing and co-directing a creative agency.</p>
-    <ol>
-      <li><span class="n">02.01</span>Campaign Strategy</li>
-      <li><span class="n">02.02</span>Teaser–Preview–Launch</li>
-      <li><span class="n">02.03</span>Creative Direction &amp; Briefs</li>
-      <li><span class="n">02.04</span>AI Tools &amp; Automation</li>
-      <li><span class="n">02.05</span>Performance Measurement</li>
-      <li><span class="n">02.06</span>Agency Collaboration</li>
-    </ol>
+  <div class="wrap lab-grid">
+    <a class="lab big reveal" href="taller-ia-para-creativos/">
+      <p class="k">Workshop · Spanish</p>
+      <h3>Taller de IA para equipos creativos</h3>
+      <p>A hands-on workshop on how creative teams can bring generative AI into their real process, without losing their brand.</p>
+      <span class="go">see the workshop →</span>
+    </a>
+    <div class="lab dark reveal">
+      <p class="k">Talk</p>
+      <h3>Claude Barcelona Meetup</h3>
+      <p>Speaker at "Design &amp; Creativity", for an audience of 150+ designers and product people.</p>
+      <span class="go">150+ attendees</span>
+    </div>
+    <div class="lab light reveal">
+      <p class="k">Side project · Award</p>
+      <h3>BLAND &amp; House of Prompt</h3>
+      <p>BLAND scores how much of a website's design is AI-generated: designed and built solo. Plus the House of Prompt Award, AIMA 2026.</p>
+      <a class="go" href="ai-brand-pipeline-case-study.html">read more</a>
+    </div>
   </div>
-  <div class="svc reveal">
-    <h3>community <span class="dot d3"></span> &amp; events</h3>
-    <p class="desc">(03) Building audiences, not just posting schedules. Workshops, UGC/influencer programs, and cross-functional alignment across Product, Growth and Demand Gen.</p>
-    <ol>
-      <li><span class="n">03.01</span>Workshops &amp; Public Speaking</li>
-      <li><span class="n">03.02</span>UGC &amp; Influencer Programs</li>
-      <li><span class="n">03.03</span>Guerrilla &amp; Organic Marketing</li>
-      <li><span class="n">03.04</span>Cross-functional Collaboration</li>
-      <li><span class="n">03.05</span>Startup Pivots, No Fear</li>
-      <li><span class="n">03.06</span>End-to-end Delivery</li>
+</section>
+
+<!-- ABOUT -->
+<section id="about" style="margin-top:7rem">
+  <div class="sec-head" style="border-top:1px solid var(--line)">
+    <div class="track">
+      <h2>about<em>*</em></h2><h2>about<em>*</em></h2><h2>about<em>*</em></h2><h2>about<em>*</em></h2><h2>about<em>*</em></h2><h2>about<em>*</em></h2><h2>about<em>*</em></h2>
+    </div>
+  </div>
+  <div class="wrap about">
+    <div class="reveal">
+      <p class="big">I trained in <span>fashion and graphic design</span>, grew into brand strategy, and now work where product, brand and AI meet.</p>
+      <p class="sub">I've designed mobile apps for MOCA Platform, led brand and communication for apps in <b>Serbia and Sweden</b>, run social and content for DTC brands in Barcelona, and today build the <b>AI tools</b> that EDUCA EDTECH Group uses to produce on-brand visuals at scale. I also founded three ventures, from a genderless fashion brand to a social-impact EdTech.</p>
+      <div class="edu"><span>ESADE · Executive Master in Brand Management</span><span>ELISAVA · Master of Branding</span><span>UAB · Postgrad Digital Strategy</span><span>Nuclio · PM: AI &amp; Data-Driven</span><span>ES · EN</span></div>
+    </div>
+    <ol class="exp reveal">
+      <li><b>EDUCA EDTECH Group</b><time>2025 — now</time><span>Brand &amp; Digital Manager · AI tools</span></li>
+      <li><b>The Wow Effect Company</b><time>2024 — 2025</time><span>Social Media Manager · DOIY, Eat My Socks</span></li>
+      <li><b>Dentsu Creative Spain</b><time>2024</time><span>Visual Designer · ImaginBank</span></li>
+      <li><b>EventMe, Serbia</b><time>2023</time><span>Brand &amp; Design Manager</span></li>
+      <li><b>Timeling, Sweden</b><time>2022</time><span>Brand Manager</span></li>
+      <li><b>MOCA Platform</b><time>2019 — 2021</time><span>Lead Designer, UI/UX</span></li>
+      <li><b>Rose Days Brand Lab</b><time>since 2011</time><span>Independent brand &amp; creative consultancy</span></li>
     </ol>
   </div>
 </section>
 
 <!-- CLIENTS -->
-<div class="sec-head">
+<div class="clients" aria-label="Clients and teams">
   <div class="track">
-    <h2>clients<em>*</em></h2><h2>clients<em>*</em></h2><h2>clients<em>*</em></h2><h2>clients<em>*</em></h2><h2>clients<em>*</em></h2><h2>clients<em>*</em></h2>
-  </div>
-</div>
-<p class="sec-note reveal"><b>*Teams, brands and people who trusted the process.</b></p>
-
-<div class="clients-marquee">
-  <div class="track">
-    <span class="logo">DOIY</span><span class="logo alt">eat my socks</span>
-    <span class="logo">EDUCAHUB.AI</span><span class="logo alt">educaedtech r&amp;d</span>
-    <span class="logo">DENTSU CREATIVE</span><span class="logo alt">imaginbank</span>
-    <span class="logo">EVENTME</span><span class="logo alt">timeling</span>
-    <span class="logo">MOCA PLATFORM</span><span class="logo alt">artskool</span>
-    <span class="logo">DOIY</span><span class="logo alt">eat my socks</span>
-    <span class="logo">EDUCAHUB.AI</span><span class="logo alt">educaedtech r&amp;d</span>
-    <span class="logo">DENTSU CREATIVE</span><span class="logo alt">imaginbank</span>
-    <span class="logo">EVENTME</span><span class="logo alt">timeling</span>
-    <span class="logo">MOCA PLATFORM</span><span class="logo alt">artskool</span>
+    <span class="logo">EDUCAHUB.AI</span><span class="logo alt">educa edtech group</span><span class="logo">DENTSU CREATIVE</span><span class="logo alt">imaginbank</span><span class="logo">MOCA PLATFORM</span><span class="logo alt">safetrac</span><span class="logo">DOIY</span><span class="logo alt">eat my socks</span><span class="logo">EVENTME</span><span class="logo alt">timeling</span><span class="logo">ARTSKOOL</span><span class="logo alt">laproff</span>
+    <span class="logo">EDUCAHUB.AI</span><span class="logo alt">educa edtech group</span><span class="logo">DENTSU CREATIVE</span><span class="logo alt">imaginbank</span><span class="logo">MOCA PLATFORM</span><span class="logo alt">safetrac</span><span class="logo">DOIY</span><span class="logo alt">eat my socks</span><span class="logo">EVENTME</span><span class="logo alt">timeling</span><span class="logo">ARTSKOOL</span><span class="logo alt">laproff</span>
   </div>
 </div>
 
-<!-- CTA -->
-<section class="cta" id="contact">
-  <p class="cta-small">got a project in mind?</p>
-  <h2>let's talk <a href="mailto:lerosedays@icloud.com">lerosedays@icloud.com</a></h2>
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="wrap">
+    <h2 class="reveal">Let's make something <span>together*</span></h2>
+    <div class="paths">
+      <a class="path a reveal" href="https://linkedin.com/in/rosedays" target="_blank" rel="noopener">
+        <p class="k">Hiring</p>
+        <h3>Looking for a product &amp; brand designer?</h3>
+        <p>I'm open to in-house roles in Barcelona or remote, where product, brand and AI meet.</p>
+        <span class="go">linkedin.com/in/rosedays ↗</span>
+      </a>
+      <a class="path b reveal" href="mailto:lerosedays@icloud.com">
+        <p class="k">Projects</p>
+        <h3>Have a product, brand or AI project?</h3>
+        <p>Tell me what you're building and where you're stuck. Freelance and consultancy through ROSEDAYS™ Brand Lab.</p>
+        <span class="go">lerosedays@icloud.com</span>
+      </a>
+    </div>
+  </div>
 </section>
+
+</main>
 
 <!-- FOOTER -->
 <footer>
   <div class="foot-card reveal">
     <div class="foot-top">
       <div class="foot-id">
-        <div class="block">
-          <p class="eyebrow">Address</p>
-          <p>Headquarter<br>ROSEDAYS™<br>Barcelona</p>
-        </div>
-        <div class="block">
-          <p class="eyebrow">Email</p>
-          <p><a href="mailto:lerosedays@icloud.com">lerosedays@icloud.com</a></p>
-        </div>
+        <div class="block"><p class="eyebrow">Studio</p><p>ROSEDAYS™ Brand Lab<br>Barcelona</p></div>
+        <div class="block"><p class="eyebrow">Email</p><p><a href="mailto:lerosedays@icloud.com">lerosedays@icloud.com</a></p></div>
       </div>
       <div class="foot-col">
         <p class="eyebrow">Pages</p>
         <ul>
           <li><a href="#work">Work</a></li>
-          <li><a href="#services">What I Do</a></li>
-          <li><a href="#">Lab</a></li>
-          <li><a href="#">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="taller-ia-para-creativos/">Taller</a></li>
+          <li><a href="#about">About</a></li>
           <li><a href="#contact">Contact</a></li>
-          <li><a href="#">FAQ</a></li>
         </ul>
       </div>
       <div class="foot-col">
@@ -516,40 +557,28 @@ footer{padding:2rem 1.2rem 1.2rem}
         </ul>
       </div>
       <div class="foot-col">
-        <p class="eyebrow">Industries</p>
+        <p class="eyebrow">Disciplines</p>
         <ul>
-          <li><a href="#">EdTech &amp; Learning</a></li>
-          <li><a href="#">E-commerce &amp; DTC</a></li>
-          <li><a href="#">AI &amp; Automation</a></li>
-          <li><a href="#">Brand &amp; Campaigns</a></li>
-          <li><a href="#">Fashion &amp; Lifestyle</a></li>
-          <li><a href="#">Social Impact</a></li>
+          <li><a href="#product">Product &amp; UX</a></li>
+          <li><a href="#ai">AI Workflows</a></li>
+          <li><a href="#brand">Brand &amp; Campaigns</a></li>
+          <li><a href="#lab">Lab &amp; Talks</a></li>
         </ul>
       </div>
     </div>
-
     <h2 class="wordmark">ROSEDAYS<sup>™</sup><span class="sub">BRAND LAB</span></h2>
-
     <div class="foot-legal">
-      <span class="copy">© 2022–2026 ROSEDAYS™ BRAND LAB – Active since 2022. Barcelona.</span>
-      <a href="#">Collaboration Agreement</a>
-      <a href="#">License Agreement</a>
-      <a href="#">Terms of Service</a>
-      <a href="#">Privacy Policy</a>
-      <a href="#">Cookie Policy</a>
-      <a href="#">Imprint</a>
-      <a href="#" class="soc">in</a>
-      <a href="#" class="soc">ig</a>
+      <span class="copy">© 2022–2026 ROSEDAYS™ Brand Lab · Laura Rosa Díaz · Barcelona</span>
+      <a href="https://linkedin.com/in/rosedays" class="soc" target="_blank" rel="noopener" aria-label="LinkedIn">in</a>
+      <a href="https://www.behance.net/rosedays" class="soc" target="_blank" rel="noopener" aria-label="Behance">Bē</a>
     </div>
   </div>
 </footer>
 
 <script>
 const io=new IntersectionObserver(entries=>{
-  entries.forEach(e=>{
-    if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}
-  });
-},{threshold:.12});
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});
+},{threshold:.1});
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 
 /* ---------- DRAG PLAYGROUND ---------- */
@@ -557,72 +586,51 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
   const stage=document.getElementById('playground');
   if(!stage)return;
   const items=[...stage.querySelectorAll('.drag-item')];
+  const reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   let topZ=10;
   const FRICTION=.94, BOUNCE=.55;
-
-  items.forEach(el=>{
+  items.forEach((el,i)=>{
     const s={x:0,y:0,vx:0,vy:0,r:parseFloat(el.dataset.r)||0,vr:0,dragging:false,px:0,py:0,raf:null};
+    const status=stage.querySelector('.status');
+    const isM=()=>window.innerWidth<1000;
     const place=()=>{
-      s.x=(parseFloat(el.dataset.x)/100)*(stage.clientWidth-el.offsetWidth);
-      s.y=(parseFloat(el.dataset.y)/100)*(stage.clientHeight-el.offsetHeight);
+      if(isM()){
+        const minY=62, maxY=Math.max(minY,status.getBoundingClientRect().top-stage.getBoundingClientRect().top-el.offsetHeight-6);
+        s.x=parseFloat(el.dataset.mx)*(stage.clientWidth-el.offsetWidth);
+        s.y=minY+parseFloat(el.dataset.my)*(maxY-minY);
+      }else{
+        s.x=parseFloat(el.dataset.x)/100*(stage.clientWidth-el.offsetWidth);
+        s.y=parseFloat(el.dataset.y)/100*(stage.clientHeight-el.offsetHeight);
+      }
       render();
     };
     const render=()=>{el.style.transform=`translate(${s.x}px,${s.y}px) rotate(${s.r}deg)`};
-    const clampBounce=()=>{
-      const maxX=stage.clientWidth-el.offsetWidth;
-      const maxY=stage.clientHeight-el.offsetHeight;
-      if(s.x<0){s.x=0;s.vx*=-BOUNCE}
-      if(s.x>maxX){s.x=maxX;s.vx*=-BOUNCE}
-      if(s.y<0){s.y=0;s.vy*=-BOUNCE}
-      if(s.y>maxY){s.y=maxY;s.vy*=-BOUNCE}
+    const clamp=()=>{
+      const maxX=stage.clientWidth-el.offsetWidth, maxY=stage.clientHeight-el.offsetHeight;
+      if(s.x<0){s.x=0;s.vx*=-BOUNCE} if(s.x>maxX){s.x=maxX;s.vx*=-BOUNCE}
+      if(s.y<0){s.y=0;s.vy*=-BOUNCE} if(s.y>maxY){s.y=maxY;s.vy*=-BOUNCE}
     };
     const momentum=()=>{
-      s.vx*=FRICTION; s.vy*=FRICTION; s.vr*=FRICTION;
-      s.x+=s.vx; s.y+=s.vy; s.r+=s.vr;
-      clampBounce(); render();
-      if(Math.abs(s.vx)>.05||Math.abs(s.vy)>.05||Math.abs(s.vr)>.05){
-        s.raf=requestAnimationFrame(momentum);
-      }
+      s.vx*=FRICTION;s.vy*=FRICTION;s.vr*=FRICTION;s.x+=s.vx;s.y+=s.vy;s.r+=s.vr;clamp();render();
+      if(Math.abs(s.vx)>.05||Math.abs(s.vy)>.05||Math.abs(s.vr)>.05)s.raf=requestAnimationFrame(momentum);
     };
     el.addEventListener('pointerdown',e=>{
-      e.preventDefault();
-      cancelAnimationFrame(s.raf);
-      s.dragging=true; s.px=e.clientX; s.py=e.clientY;
-      s.vx=0; s.vy=0; s.vr=0;
-      el.classList.add('grabbing');
-      el.style.zIndex=++topZ;
-      el.setPointerCapture(e.pointerId);
+      e.preventDefault();cancelAnimationFrame(s.raf);
+      s.dragging=true;s.px=e.clientX;s.py=e.clientY;s.vx=s.vy=s.vr=0;
+      el.classList.add('grabbing');el.style.zIndex=++topZ;el.setPointerCapture(e.pointerId);
     });
     el.addEventListener('pointermove',e=>{
       if(!s.dragging)return;
-      const dx=e.clientX-s.px, dy=e.clientY-s.py;
-      s.px=e.clientX; s.py=e.clientY;
-      s.x+=dx; s.y+=dy;
-      s.vx=dx; s.vy=dy;
-      s.vr=dx*.12;
-      s.r+=dx*.06;
-      clampBounce(); render();
+      const dx=e.clientX-s.px,dy=e.clientY-s.py;s.px=e.clientX;s.py=e.clientY;
+      s.x+=dx;s.y+=dy;s.vx=dx;s.vy=dy;s.vr=dx*.12;s.r+=dx*.06;clamp();render();
     });
-    const release=()=>{
-      if(!s.dragging)return;
-      s.dragging=false;
-      el.classList.remove('grabbing');
-      s.raf=requestAnimationFrame(momentum);
-    };
-    el.addEventListener('pointerup',release);
-    el.addEventListener('pointercancel',release);
-
-    place();
-    window.addEventListener('resize',place);
-
+    const release=()=>{if(!s.dragging)return;s.dragging=false;el.classList.remove('grabbing');s.raf=requestAnimationFrame(momentum)};
+    el.addEventListener('pointerup',release);el.addEventListener('pointercancel',release);
+    place();window.addEventListener('resize',place);
+    if(reduce)return;
     el.style.opacity='0';
-    setTimeout(()=>{
-      el.style.transition='opacity .6s';
-      el.style.opacity='1';
-      s.vy=4+Math.random()*4;
-      s.vx=(Math.random()-.5)*6;
-      s.raf=requestAnimationFrame(momentum);
-    },200+items.indexOf(el)*140);
+    if(isM()){setTimeout(()=>{el.style.transition='opacity .6s';el.style.opacity='1'},250+i*120);return;}
+    setTimeout(()=>{el.style.transition='opacity .6s';el.style.opacity='1';s.vy=3+Math.random()*3;s.vx=(Math.random()-.5)*4;s.raf=requestAnimationFrame(momentum)},250+i*140);
   });
 })();
 </script>
